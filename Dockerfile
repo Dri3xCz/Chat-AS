@@ -1,0 +1,6 @@
+FROM php:7.4-apache
+RUN apt-get update && apt upgrade -y
+ADD ./app /var/www/html
+
+EXPOSE 80
+
