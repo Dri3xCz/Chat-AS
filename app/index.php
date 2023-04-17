@@ -60,8 +60,8 @@
 
                 </div>     
                 
-                <form class="message-box w-100 d-flex justify-content-center" action="/submit/?user=<?php echo urlencode($_GET['user']); ?>" method="post">
-                    <input class="w-75" type="text" id="text" name="text">                
+                <form class="message-box w-100 d-flex ml-5" action="/submit/?user=<?php echo urlencode($_GET['user']); ?>" method="post">
+                    <input class="w-75 ml-5" type="text" id="text" name="text">                
                     <input type="submit" class="message-box-submit" value="">
                 </form>      
             </div>

@@ -8,3 +8,16 @@ services:
       - "./app:/var/www/html"
     environment:
       SITE_URL: http://localhost    
+  
+  db:
+    image: mysql:latest
+    ports:
+      - "3360:3360"
+    volumes:
+      - ./data:/var/lib/mysql
+    restart: on-failure
+    environment:
+      MYSQL_ROOT_PASSWORD: admin
+      MYSQL_DATABASE: database
+      MYSQL_USER: user
+      MYSQL_PASSWORD: heslo
