@@ -10,7 +10,7 @@ class UserCreatedUseCase extends User {
     public function __construct($user_create_repo, $name) {
         $this->user_create_repo = $user_create_repo;
         $this->name = $name;
-        //$user_create_repo->query_db($this->name);
+        $user_create_repo->query_db($this->name);
         $this->finish();
     }
 
@@ -19,8 +19,7 @@ class UserCreatedUseCase extends User {
     }
 }
 
-$test = new UserCreateRepository();
-$test_usecase = new UserCreatedUseCase($test, "Kok");
+
 
 
 ?>
