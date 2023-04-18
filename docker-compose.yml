@@ -1,23 +1,26 @@
-version: "2"
+version: "3.8"
+
 services:
-  phpapp:
-    image: mydemophpimage
-    ports:
-      - "80:80"
-    volumes:
-      - "./app:/var/www/html"
-    environment:
-      SITE_URL: http://localhost    
-  
   db:
     image: mysql:latest
     ports:
-      - "3360:3360"
-    volumes:
-      - ./data:/var/lib/mysql
+      - "3306"
     restart: on-failure
     environment:
       MYSQL_ROOT_PASSWORD: admin
       MYSQL_DATABASE: database
       MYSQL_USER: user
       MYSQL_PASSWORD: heslo
+
+  phpapp:
+    build:
+      context: .
+    working_dir: /var/www/html
+    ports:
+      - "5000:80"
+    volumes:
+      - "./app:/var/www/html"
+    environment:
+      SITE_URL: localhost    
+  
+      

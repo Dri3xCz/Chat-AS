@@ -1,3 +1,20 @@
+<?php
+
+session_start();
+require_once('config.php');
+
+try {
+$dsn = "mysql:host=$DB_HOST;port=$DB_PORT;dbname=$DB_NAME";
+$conn = new PDO($dsn, $DB_USERNAME, $DB_PASSWORD);
+$conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+  echo "Connected successfully";
+} catch(PDOException $e) {
+    echo $DB_HOST;
+  echo "Connection failed: " . $e;
+}
+?>
+
+
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -14,15 +31,15 @@
         <div class="row h-100">
             <div class="col-lg-2 col-4 chat-buffer-list">                
                 <a href="?user=placeholder" class="chat-buffer d-flex">
-                    <img src="foxpfp.jpg" class="profile-pic" alt="">
+                    <img src="assets/img/foxpfp.jpg" class="profile-pic" alt="">
                     <h3 class="username">placeholder</h3>
                 </a>
                 <div class="chat-buffer d-flex">
-                    <img src="foxpfp.jpg" class="profile-pic" alt="">
+                    <img src="assets/img/foxpfp.jpg" class="profile-pic" alt="">
                     <h3 class="username">placeholder</h3>
                 </div>
                 <div class="chat-buffer d-flex">
-                    <img src="foxpfp.jpg" class="profile-pic" alt="">
+                    <img src="assets/img/foxpfp.jpg" class="profile-pic" alt="">
                     <h3 class="username">placeholder</h3>
                 </div>
 
@@ -32,7 +49,7 @@
                 <div class="chat-space w-100">
                     <div class="chat-message w-75 mt-2">
                         <div class="message-info d-flex align-items-center">
-                            <img src="foxpfp.jpg" class="profile-pic" alt="">
+                            <img src="assets/img/foxpfp.jpg" class="profile-pic" alt="">
                             <h3>Placeholder <span>Datum</span></h3>
                         </div>
                         <div class="message-content ml-5">
@@ -41,7 +58,7 @@
                     </div>
                     <div class="chat-message w-75 mt-2">
                         <div class="message-info d-flex align-items-center">
-                            <img src="foxpfp.jpg" class="profile-pic" alt="">
+                            <img src="assets/img/foxpfp.jpg" class="profile-pic" alt="">
                             <h3>Placeholder <span>Datum</span></h3>
                         </div>
                         <div class="message-content ml-5">
@@ -50,7 +67,7 @@
                     </div>
                     <div class="chat-message w-75 ml-2">
                         <div class="message-info d-flex align-items-center">
-                            <img src="foxpfp.jpg" class="profile-pic" alt="">
+                            <img src="assets/img/foxpfp.jpg" class="profile-pic" alt="">
                             <h3>Placeholder <span>Datum</span></h3>
                         </div>
                         <div class="message-content ml-5">
@@ -70,3 +87,4 @@
     </main>    
 </body>
 </html>
+

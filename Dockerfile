@@ -1,6 +1,9 @@
 FROM php:7.4-apache
-RUN apt-get update && apt upgrade -y
-ADD ./app /var/www/html
 
-EXPOSE 80
+WORKDIR /var/www/html
 
+COPY ./app /var/www/html
+
+RUN apt-get update && apt-get upgrade -y default-mysql-client
+
+RUN docker-php-ext-install mysqli pdo pdo_mysql

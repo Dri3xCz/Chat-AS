@@ -58,7 +58,7 @@ p {
     border-radius: 50%;
     background-color: transparent;
     border: none;
-    background-image: url("http://localhost/new-send-icon.png");
+    background-image: url("assets/img/new-send-icon.png");
     background-size: cover;
     background-position: center;
 }
