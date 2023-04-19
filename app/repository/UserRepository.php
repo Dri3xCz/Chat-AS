@@ -1,4 +1,6 @@
 <?php
+    include('../connection.php');
+
     class UserCreateRepository {
         public $conn;
         public function __construct($conn){
@@ -13,9 +15,20 @@
         }
     }
 
-    // Typek se lognul 
     class UserLoginRepository {
 
-        // Funcki, SELECT * from users.name users.pass
+        public $conn;
+        public function __construct($conn){
+            $this->conn = $conn;
+        }
+
+        public $sql = "SELECT * FROM User";
+        
+        public function fetchData() : array { 
+            $prepared_sql = $this->conn->prepare($this->sql);
+            $prepared_sql->execute();
+            $result = $prepared_sql->fetchAll();
+            return $result;
+        }
     }
 ?>

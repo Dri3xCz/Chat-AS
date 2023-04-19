@@ -1,10 +1,10 @@
 <?php
-    require_once('../usercase/UserUseCase.php');
+    require_once('../usecase/UserUseCase.php');
     include('../connection.php');
 
     $username = $_POST['username'];
     $password = $_POST['password'];
 
-    $userRepo = new UserCreateRepository($conn);
+    $userRepo = new UserLoginRepository($conn);
     $userCase = new UserCreatedUseCase($userRepo, $username);
 ?>
