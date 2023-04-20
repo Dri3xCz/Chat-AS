@@ -1,13 +1,14 @@
 <?php
+    require_once('../domain/entities.php');
     require_once('../usecase/UserUseCase.php');
     include('../connection.php');
 
     $username = $_POST['username'];
     $password = $_POST['password'];
 
-    $data_array = array("username"=>$username,"password"=>$password);
-
-    $userRepo = new UserLoginRepository($conn);
-    $userCase = new UserLoginUseCase($userRepo, $data_array);
-    $userCase->check_credentials();
+    $user = new BasicUser($username, $password);
+    
+    $login_repo = new UserLoginRepository($conn);
+    $login_case = new UserLoginUseCase($login_repo, $user);
+    $login_case->check_credentials();
 ?>

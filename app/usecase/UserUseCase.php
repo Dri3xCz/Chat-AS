@@ -5,44 +5,46 @@ require_once('../repository/UserRepository.php');
 
 session_start();
 
-class UserCreatedUseCase extends User {
+class UserRegisterUseCase {
    
-    public $user_create_repo; 
+    public $register_repo; 
+    public $user;
 
-    public function __construct($user_create_repo, $name, $password) {
-        $this->user_create_repo = $user_create_repo;
-        $this->name = $name;
-        $this->password = $password;
-        $user_create_repo->query_db($this->name, $this->password);
+    public function __construct($register_repo, $user) {
+        $this->register_repo = $register_repo;
+        $this->user = $user;
+        $this->register_repo->query_db($this->user->name, $this->user->password);
         $this->finish();
     }
 
     public function finish() {
-        $_SESSION["user"] = $this->name;
+        $_SESSION["user"] = $this->user->name;
         header("location: ../"); 
     }
 }
 
-class UserLoginUseCase extends User {
-    // array(2) {"username" => user, "password" -> pass}
-    public $controller_data;
+class UserLoginUseCase {
+    public $user;
     public $login_repo;
-    public function __construct($login_repo, $controller_data) {
-        $this->controller_data = $controller_data;
+
+    public function __construct($login_repo, $user) {
         $this->login_repo = $login_repo;
+        $this->user = $user;
     }
 
     public function check_credentials() {
         $user_matched = false;
         $data = $this->login_repo->fetchData();
+
         for ($i = 0; $i < sizeof($data); $i++) {
-            if ($data[$i]["name"] == $this->controller_data["username"]) {
-                if($data[$i]["password"] == $this->controller_data["password"]) {
-                    $_SESSION["user"] = $this->controller_data["username"];
+            if ($data[$i]["name"] == $this->user->name) {
+                if($data[$i]["password"] == $this->user->password ) {
+                    $_SESSION["user"] = $this->user->name;
                     $user_matched = true;       
                 }
             }
         } 
+        
         if($user_matched) { 
             header("location: ../");
         } else {
