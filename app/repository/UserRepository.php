@@ -7,11 +7,11 @@
             $this->conn = $conn;
         }
 
-        public $sql = "INSERT INTO User VALUES (?);";
+        public $sql = "INSERT INTO User VALUES (? , ?);";
         
-        public function query_db($name) { 
+        public function query_db($name, $password) { 
             $prepared_sql = $this->conn->prepare($this->sql);
-            $prepared_sql->execute([$name]);
+            $prepared_sql->execute([$name, $password]);
         }
     }
 
