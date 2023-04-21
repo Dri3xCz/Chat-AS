@@ -6,12 +6,20 @@
         public function __construct($conn){
             $this->conn = $conn;
         }
-
-        public $sql = "INSERT INTO User VALUES (? , ?);";
         
-        public function query_db($name, $password) { 
-            $prepared_sql = $this->conn->prepare($this->sql);
-            $prepared_sql->execute([$name, $password]);
+        public $sql_select = "SELECT user.name FROM user";
+        public $sql_insert = "INSERT INTO User VALUES (? , ?);";
+        
+        public function queryDb($user) { 
+            $prepared_sql = $this->conn->prepare($this->sql_insert);
+            $prepared_sql->execute([$user->name, $user->password]);
+        }
+
+        public function fetchData() : array {
+            $prepared_sql =  $this->conn->prepare($this->sql_select);
+            $prepared_sql->execute();
+            $result = $prepared_sql->fetchAll();
+            return $result;
         }
     }
 

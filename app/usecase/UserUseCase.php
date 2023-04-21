@@ -13,13 +13,28 @@ class UserRegisterUseCase {
     public function __construct($register_repo, $user) {
         $this->register_repo = $register_repo;
         $this->user = $user;
-        $this->register_repo->query_db($this->user->name, $this->user->password);
-        $this->finish();
+        $validate = $this->validate();
+        $this->finish($validate);
     }
 
-    public function finish() {
-        $_SESSION["user"] = $this->user->name;
-        header("location: ../"); 
+    public function validate() : bool {
+        $registered_usernames = $this->register_repo->fetchData();
+        for ($i = 0; $i < sizeof($registered_usernames); $i++) {
+            if ($this->user->name == $registered_usernames[$i]["name"]) {
+                return false;
+            }
+        }
+        return true;
+    }
+
+    public function finish($validate) {
+        if($validate) {
+            $this->register_repo->queryDb($this->user);
+            $_SESSION["user"] = $this->user->name;
+            header("location: ../");  
+        } else {
+            header("location: ../web/register/?error=username_taken");
+        }
     }
 }
 
