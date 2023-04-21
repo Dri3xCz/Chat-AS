@@ -18,26 +18,26 @@
                         <hr>
                         <label for="username">Jméno</label>
                         <input type="text" name="username">
-                        <label for="password">Helo</label>
+                        <label for="password">Heslo</label>
                         <input type="password" name="password"> 
                         <label for="password-confirm">Potvrdit heslo</label>
                         <input type="password" name="password-confirm"> 
                         <hr>
-                        <div class="form-footer">
+                        <div>
                             <h4>Již máte účet?</h4>
                             <div class="w-100 d-flex justify-content-between align-items-center">
-                                <a href="../login/index.php">Přihlásit se</a>
+                                <a href="../login/">Přihlásit se</a>
                                 <?php
                                     $error = isset($_GET["error"]) ? $_GET["error"] : "";
                                     switch ($error) {
                                         case "invalid_input":
-                                            echo '<h5 style="color: red">Please fill in all required fields.</h5>';
+                                            echo '<h5 style="color: red">Please fill in all required fields</h5>';
                                             break;
                                         case "different_passwords":
-                                            echo '<h5 style="color: red">Passwords must not be different.</h5>';
+                                            echo '<h5 style="color: red">Passwords must match</h5>';
                                             break;
                                         case "username_taken":
-                                            echo '<h5 style="color: red">Username was already taken.</h5>';
+                                            echo '<h5 style="color: red">Username was already taken</h5>';
                                             break;
                                     }
                                 ?>

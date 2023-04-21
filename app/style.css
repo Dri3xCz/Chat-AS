@@ -72,25 +72,32 @@ p {
     filter: drop-shadow(4px 0 32px rgba(0,0,0,.25));
 }
 
-.registration-area {
+.registration-area, .login-area {
     background-color: #FAF9F6;
 }
 
-.register-form-con {
+.register-form-con, .login-form-con {
     display: flex;
     justify-content: center;
     flex-direction: column;
 }
 
-.register-form {
-    height: 60%;
+.register-form, .login-form {
     background-color: #FFFAFA;
     display: flex;
     flex-direction: column;
     filter: drop-shadow(0 4px 4px rgba(0,0,0,.25));
 }
 
-.register-form > * {
+.register-form {
+    height: 60%;
+}
+
+.login-form {
+    height: 50%;
+}
+
+.register-form > *, .login-form > * {
     margin: 15px 0 0 10px;
     width: 96%;
 }
@@ -100,7 +107,12 @@ p {
     border-radius: 15px;
 }
 
-.register-form > label {
+.login-form > input {
+    height: 12%;
+    border-radius: 15px;
+}
+
+.register-form > label, .login-form > label {
     font-size: 1.5rem;
 }
 
