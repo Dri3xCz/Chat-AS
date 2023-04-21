@@ -9,7 +9,6 @@
     <link rel="stylesheet" href="../../style.css">
 </head>
 <body>
-
     <section class="registration-area">
         <main class="container"> 
             <div class="row d-flex justify-content-center h-100">
@@ -28,6 +27,20 @@
                             <h4>Již máte účet?</h4>
                             <div class="w-100 d-flex justify-content-between align-items-center">
                                 <a href="../login/index.php">Přihlásit se</a>
+                                <?php
+                                    $error = isset($_GET["error"]) ? $_GET["error"] : "";
+                                    switch ($error) {
+                                        case "invalid_input":
+                                            echo '<h5 style="color: red">Please fill in all required fields.</h5>';
+                                            break;
+                                        case "different_passwords":
+                                            echo '<h5 style="color: red">Passwords must not be different.</h5>';
+                                            break;
+                                        case "username_taken":
+                                            echo '<h5 style="color: red">Username was already taken.</h5>';
+                                            break;
+                                    }
+                                ?>
                                 <input type="submit" value="Registrovat" class="submit-button"> 
                             </div>
                         </div>
@@ -36,9 +49,5 @@
             </div> 
         </main>
     </section>
-    
-
-
-
-    </body>
+</body>
 </html>

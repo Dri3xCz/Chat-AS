@@ -13,11 +13,23 @@ class UserRegisterUseCase {
     public function __construct($register_repo, $user) {
         $this->register_repo = $register_repo;
         $this->user = $user;
-        $validate = $this->validate();
-        $this->finish($validate);
+        $this->validateInput();
     }
 
-    public function validate() : bool {
+    public function validateInput() {
+        if($this->user->name == "" || $this->user->password == "") {
+            header("location: ../web/register/?error=invalid_input");
+        } else
+        
+        if($this->user->password != $this->user->password_confirm) {
+            header("location: ../web/register/?error=different_passwords");
+        } else {
+            $validate = $this->validateDatabaseData();
+            $this->finish($validate);
+        }
+    }
+
+    public function validateDatabaseData() : bool {
         $registered_usernames = $this->register_repo->fetchData();
         for ($i = 0; $i < sizeof($registered_usernames); $i++) {
             if ($this->user->name == $registered_usernames[$i]["name"]) {
