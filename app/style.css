@@ -63,8 +63,6 @@ p {
     background-position: center;
 }
 
-
-
 .message-info > * {
     margin-left: 10px;
 }
@@ -72,4 +70,45 @@ p {
 .profile-info {
     background-color: #FFFFFF;
     filter: drop-shadow(4px 0 32px rgba(0,0,0,.25));
+}
+
+.registration-area {
+    background-color: #FAF9F6;
+}
+
+.register-form-con {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.register-form {
+    height: 60%;
+    background-color: #FFFAFA;
+    display: flex;
+    flex-direction: column;
+    filter: drop-shadow(0 4px 4px rgba(0,0,0,.25));
+}
+
+.register-form > * {
+    margin: 15px 0 0 10px;
+    width: 96%;
+}
+
+.register-form > input {
+    height: 10%;
+    border-radius: 15px;
+}
+
+.register-form > label {
+    font-size: 1.5rem;
+}
+
+.submit-button {
+    background-color: #5cb85c;
+    color: white;
+    padding: 5px 10px;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer; 
 }
