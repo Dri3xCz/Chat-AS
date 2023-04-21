@@ -1,4 +1,4 @@
-<html lang="en">
+<html lang="cs">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -17,7 +17,7 @@
                         <h2>Příhlásit se</h3>
                         <hr>
                         <label for="username">Jméno</label>
-                        <input type="text" name="username">
+                        <input type="text" name="username" autocomplete="off">
                         <label for="password">Heslo</label>
                         <input type="password" name="password"> 
                         <hr>
@@ -28,7 +28,7 @@
                                 <?php
                                     $error = isset($_GET["error"]) ? $_GET["error"] : "";
                                     if($error == "invalid_credentials")
-                                        echo '<h5 style="color: red">Username or password incorrect</h5>';
+                                        echo '<h5 style="color: red">Špatné přihlašovací údaje</h5>';
                                 ?>
                                 <input type="submit" value="Přihlásit se" class="submit-button"> 
                             </div>

@@ -104,11 +104,13 @@ p {
 
 .register-form > input {
     height: 10%;
+    padding-left: 10px;
     border-radius: 15px;
 }
 
 .login-form > input {
     height: 12%;
+    padding-left: 10px;
     border-radius: 15px;
 }
 

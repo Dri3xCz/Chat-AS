@@ -1,4 +1,4 @@
-<html lang="en">
+<html lang="cs">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -17,7 +17,7 @@
                         <h2>Registrovat se</h3>
                         <hr>
                         <label for="username">Jméno</label>
-                        <input type="text" name="username">
+                        <input type="text" name="username" autocomplete="off">
                         <label for="password">Heslo</label>
                         <input type="password" name="password"> 
                         <label for="password-confirm">Potvrdit heslo</label>
@@ -31,13 +31,13 @@
                                     $error = isset($_GET["error"]) ? $_GET["error"] : "";
                                     switch ($error) {
                                         case "invalid_input":
-                                            echo '<h5 style="color: red">Please fill in all required fields</h5>';
+                                            echo '<h5 style="color: red">Vyplňte všechna pole</h5>';
                                             break;
                                         case "different_passwords":
-                                            echo '<h5 style="color: red">Passwords must match</h5>';
+                                            echo '<h5 style="color: red">Hesla se musejí shodovat</h5>';
                                             break;
                                         case "username_taken":
-                                            echo '<h5 style="color: red">Username was already taken</h5>';
+                                            echo '<h5 style="color: red">Uživatelské jméno je obsazené</h5>';
                                             break;
                                     }
                                 ?>
