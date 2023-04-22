@@ -32,7 +32,7 @@ class UserRegisterUseCase {
     public function validateDatabaseData() : bool {
         $registered_usernames = $this->register_repo->fetchData();
         for ($i = 0; $i < sizeof($registered_usernames); $i++) {
-            if ($this->user->name == $registered_usernames[$i]["name"]) {
+            if ($this->user->name == $registered_usernames[$i]["username"]) {
                 return false;
             }
         }
@@ -42,11 +42,17 @@ class UserRegisterUseCase {
     public function finish($validate) {
         if($validate) {
             $this->register_repo->queryDb($this->user);
-            $_SESSION["user"] = $this->user->name;
+            $this->setUserSession();
             header("location: ../");  
         } else {
             header("location: ../web/register/?error=username_taken");
         }
+    }
+
+    public function setUserSession() {
+        $id = $this->register_repo->fetchId($this->user);
+        $this->user->user_id = $id["idUser"];
+        $_SESSION["user"] = $this->user;
     }
 }
 
@@ -64,9 +70,10 @@ class UserLoginUseCase {
         $data = $this->login_repo->fetchData();
 
         for ($i = 0; $i < sizeof($data); $i++) {
-            if ($data[$i]["name"] == $this->user->name) {
+            if ($data[$i]["username"] == $this->user->name) {
                 if($data[$i]["password"] == $this->user->password ) {
-                    $_SESSION["user"] = $this->user->name;
+                    $this->user->user_id = $data[$i]["idUser"];
+                    $_SESSION["user"] = $this->user;
                     $user_matched = true;       
                 }
             }

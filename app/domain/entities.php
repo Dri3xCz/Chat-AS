@@ -1,6 +1,7 @@
 <?php
 
 abstract class User {
+    public $user_id;
     public $name; 
     public $password;
 }

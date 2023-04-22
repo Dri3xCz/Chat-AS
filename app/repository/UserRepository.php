@@ -1,5 +1,4 @@
 <?php
-    include('../connection.php');
 
     class UserRegisterRepository {
         public $conn;
@@ -7,8 +6,9 @@
             $this->conn = $conn;
         }
         
-        public $sql_select = "SELECT user.name FROM user";
-        public $sql_insert = "INSERT INTO User VALUES (? , ?);";
+        public $sql_select_name = "SELECT user.username FROM user";
+        public $sql_select_id = "SELECT user.idUser FROM user WHERE user.username = ?";
+        public $sql_insert = "INSERT INTO User VALUES (NULL, ? , ?);";
         
         public function queryDb($user) { 
             $prepared_sql = $this->conn->prepare($this->sql_insert);
@@ -16,9 +16,16 @@
         }
 
         public function fetchData() : array {
-            $prepared_sql =  $this->conn->prepare($this->sql_select);
+            $prepared_sql =  $this->conn->prepare($this->sql_select_name);
             $prepared_sql->execute();
             $result = $prepared_sql->fetchAll();
+            return $result;
+        }
+
+        public function fetchId($user) : array {
+            $prepared_sql =  $this->conn->prepare($this->sql_select_id);
+            $prepared_sql->execute([$user->name]);
+            $result = $prepared_sql->fetch();
             return $result;
         }
     }

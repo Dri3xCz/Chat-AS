@@ -18,3 +18,11 @@ CREATE TABLE `Chat` (
   `time` datetime NOT NULL,
   PRIMARY KEY (`idChat`)
 );
+
+CREATE TABLE `FriendRequests` (
+  `idRequest` int(11) NOT NULL AUTO_INCREMENT,
+  `idUserRequesting` int(4) NOT NULL,
+  `idUserAsked` int(4) NOT NULL,
+  PRIMARY KEY (`idRequest`)
+);
+

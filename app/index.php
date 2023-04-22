@@ -1,4 +1,7 @@
 <?php
+
+require("./domain/entities.php");
+
 session_start();
 if(!isset($_SESSION["user"])){
     header("location: web/login");
@@ -35,7 +38,12 @@ if(!isset($_SESSION["user"])){
 
             </div>
             <div class="col-8 chat-main">
+                <?php
+                    require("./controller/index_controller.php");
+                    chatArea();
+                ?>
 
+                <!--
                 <div class="chat-space w-100">
                     <div class="chat-message w-75 mt-2">
                         <div class="message-info d-flex align-items-center">
@@ -67,10 +75,12 @@ if(!isset($_SESSION["user"])){
 
                 </div>     
                 
-                <form class="message-box w-100 d-flex ml-5" action="/submit/?user=<?php echo urlencode($_GET['user']); ?>" method="post">
+                
+                <form class="message-box w-100 d-flex ml-5" action="/submit/?user=<?php echo urlencode($_GET["user"]); ?>" method="post">
                     <input class="w-75 ml-5" type="text" id="text" name="text">                
                     <input type="submit" class="message-box-submit" value="">
                 </form>      
+                -->
             </div>
             <div class="col-sm-2 d-none d-lg-block profile-info"></div>
         </div>
