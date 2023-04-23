@@ -6,9 +6,12 @@ class FriendRequestRepository {
         $this->conn = $conn;
     }
 
-    public $sql_select_friend_request = "SELECT * FROM FriendRequests WHERE FriendRequests.idUserRequesting = ? OR FriendRequests.idUserAsked = ?";
-    public $sql_select_active_friends = "SELECT * FROM Friendship WHERE Friendship.idUser1 = ? OR Friendship.idUser2 = ?";
-    public $sql_insert_friend_request = "INSERT INTO FriendRequests VALUES (NULL, ?, ?)";
+    public $sql_select_friend_request = 
+    "SELECT * FROM FriendRequests WHERE FriendRequests.idUserRequesting = ? OR FriendRequests.idUserAsked = ?";
+    public $sql_select_active_friends = 
+    "SELECT * FROM Friendship WHERE Friendship.idUser1 = ? OR Friendship.idUser2 = ?";
+    public $sql_insert_friend_request = 
+    "INSERT INTO FriendRequests VALUES (NULL, ?, ?)";
 
     public function insertRequest($user_requesting, $user_asked) {
         $prepared_sql = $this->conn->prepare($this->sql_insert_friend_request);

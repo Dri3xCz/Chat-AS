@@ -87,4 +87,21 @@ class UserLoginUseCase {
     }     
 }
 
+class GetUserIdUseCase {
+    public $repo;
+    public function __construct($repo) {
+        $this->repo = $repo;
+    }
+
+    public function getId($user) : BasicUser {
+        // TODO: Validace - user musí existovat
+        
+        $new_user = $user;
+        $data = $this->repo->fetchId($new_user);
+        $new_user->user_id = $data["idUser"];
+
+        return $new_user;
+    } 
+}
+
 ?>

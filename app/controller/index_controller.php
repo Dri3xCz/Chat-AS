@@ -4,7 +4,7 @@ function chatArea() {
     $status = isset($_GET["status"]) ? $_GET["status"] : "";
 
     if($status == "adding_friends") {
-        
+        friendArea();
     } else {
         echo '<div class="chat-space w-100">';
             echo '<div class="chat-message w-75 mt-2">';
@@ -22,6 +22,13 @@ function chatArea() {
             echo '<input type="submit" class="message-box-submit" value="">';
         echo '</form>';
     }
+}
+
+function friendArea() {
+    echo '<form action="./controller/friend_request.php" method="post">
+        <input type="text" name="username">
+        <input type="submit" value="Send request"> 
+    </form>';
 }
 
 ?>

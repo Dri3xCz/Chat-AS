@@ -1,7 +1,4 @@
 <?php
-require_once("../domain/entities.php");
-require_once("../repository/friend_repository.php");
-include("../connection.php");
 
 class FriendRequestUseCase {
     public $friend_repo;
@@ -44,20 +41,11 @@ class FriendRequestUseCase {
     public function finish($valid) {
         if($valid) {
             $this->friend_repo->insertRequest($this->active_user, $this->user_asked);
-            echo "Request Successfull";
+            header("location: ../?status=adding_friends");
         } else {
-            echo "Request invalid";
+           header("location: ../?status=adding_friends&error=invalid_request");
         }
     }
 }
-
-$active_user = new BasicUser("kubec", "aho");
-$user_asked = new BasicUser("ahoj", "aho");
-$active_user->user_id = 16;
-$user_asked->user_id = 17;
-
-$repo = new FriendRequestRepository($conn);
-$use_case = new FriendRequestUseCase($repo, $active_user, $user_asked);
-
 
 ?>

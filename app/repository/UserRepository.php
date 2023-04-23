@@ -45,4 +45,19 @@
             return $result;
         }
     }
+
+    class UserIdRepository {
+        public $conn;
+        public function __construct($conn) {
+            $this->conn = $conn;
+        }
+        
+        public $sql_select_id = "SELECT user.idUser FROM user WHERE user.username = ?";
+        public function fetchId($user) : array {
+            $prepared_sql = $this->conn->prepare($this->sql_select_id);
+            $prepared_sql->execute([$user->name]);
+            $result = $prepared_sql->fetch();
+            return $result;
+        }
+    }
 ?>
