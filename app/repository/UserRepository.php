@@ -16,14 +16,14 @@
         }
 
         public function fetchData() : array {
-            $prepared_sql =  $this->conn->prepare($this->sql_select_name);
+            $prepared_sql = $this->conn->prepare($this->sql_select_name);
             $prepared_sql->execute();
             $result = $prepared_sql->fetchAll();
             return $result;
         }
 
         public function fetchId($user) : array {
-            $prepared_sql =  $this->conn->prepare($this->sql_select_id);
+            $prepared_sql = $this->conn->prepare($this->sql_select_id);
             $prepared_sql->execute([$user->name]);
             $result = $prepared_sql->fetch();
             return $result;
