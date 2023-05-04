@@ -24,21 +24,11 @@ class UserRegisterUseCase {
         if($this->user->password != $this->user->password_confirm) {
             header("location: ../web/register/?error=different_passwords");
         } else {
-            $validate = $this->validateDatabaseData();
+            $validate = $this->register_repo->validateData($this->user->name);
             $this->finish($validate);
         }
     }
-
-    public function validateDatabaseData() : bool {
-        $registered_usernames = $this->register_repo->fetchData();
-        for ($i = 0; $i < sizeof($registered_usernames); $i++) {
-            if ($this->user->name == $registered_usernames[$i]["username"]) {
-                return false;
-            }
-        }
-        return true;
-    }
-
+    
     public function finish($validate) {
         if($validate) {
             $this->register_repo->queryDb($this->user);

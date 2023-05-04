@@ -28,6 +28,15 @@
             $result = $prepared_sql->fetch();
             return $result;
         }
+
+        public function validateData($username) : bool {
+            $sql = "SELECT username FROM User WHERE username LIKE '$username'";
+
+            $prepared_sql = $this->conn->prepare($sql);
+            $prepared_sql->execute();
+            $result = $prepared_sql->fetchAll();
+            return sizeof($result) == 0;
+        }
     }
 
     class UserLoginRepository {
@@ -36,10 +45,10 @@
             $this->conn = $conn;
         }
 
-        public $sql = "SELECT * FROM User";
-        
         public function fetchData() : array { 
-            $prepared_sql = $this->conn->prepare($this->sql);
+            $sql = "SELECT * FROM User";
+
+            $prepared_sql = $this->conn->prepare($sql);
             $prepared_sql->execute();
             $result = $prepared_sql->fetchAll();
             return $result;
