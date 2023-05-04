@@ -53,5 +53,14 @@
             $result = $prepared_sql->fetchAll();
             return $result;
         }
+
+        public function userMatch($user) : bool {
+            $sql = "SELECT * FROM User WHERE username LIKE '$user->name' AND password LIKE '$user->password'";
+
+            $prepared_sql = $this->conn->prepare($sql);
+            $prepared_sql->execute();
+            $result = $prepared_sql->fetchAll();
+            return sizeof($result) != 0;
+        }
     }
 ?>

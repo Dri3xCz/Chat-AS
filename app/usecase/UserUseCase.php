@@ -28,7 +28,7 @@ class UserRegisterUseCase {
             $this->finish($validate);
         }
     }
-    
+
     public function finish($validate) {
         if($validate) {
             $this->register_repo->queryDb($this->user);
@@ -56,20 +56,9 @@ class UserLoginUseCase {
     }
 
     public function check_credentials() {
-        $user_matched = false;
-        $data = $this->login_repo->fetchData();
-
-        for ($i = 0; $i < sizeof($data); $i++) {
-            if ($data[$i]["username"] == $this->user->name) {
-                if($data[$i]["password"] == $this->user->password ) {
-                    $this->user->user_id = $data[$i]["idUser"];
-                    $_SESSION["user"] = $this->user;
-                    $user_matched = true;       
-                }
-            }
-        } 
         
-        if($user_matched) { 
+        if($this->login_repo->userMatch($this->user)) { 
+            $_SESSION["user"] = $this->user;
             header("location: ../");
         } else {
             header("location: ../web/login/?error=invalid_credentials"); 
