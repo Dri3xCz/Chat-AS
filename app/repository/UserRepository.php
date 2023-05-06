@@ -33,7 +33,7 @@
             $sql = "SELECT username FROM User WHERE username LIKE ?;";
 
             $prepared_sql = $this->conn->prepare($sql);
-            $prepared_sql->execute([$user]);
+            $prepared_sql->execute([$username]);
             $result = $prepared_sql->fetchAll();
             return sizeof($result) == 0;
         }
