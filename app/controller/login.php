@@ -10,5 +10,4 @@
     
     $login_repo = new UserLoginRepository($conn);
     $login_case = new UserLoginUseCase($login_repo, $user);
-    $login_case->check_credentials();
 ?>

@@ -53,6 +53,7 @@ class UserLoginUseCase {
     public function __construct($login_repo, $user) {
         $this->login_repo = $login_repo;
         $this->user = $user;
+        $this->check_credentials();
     }
 
     public function check_credentials() {

@@ -25,7 +25,7 @@
         public function fetchId($user) : array {
             $prepared_sql = $this->conn->prepare($this->sql_select_id);
             $prepared_sql->execute([$user->name]);
-            $result = $prepared_sql->fetch();
+            $result = $prepared_sql->fetchAll();
             return $result;
         }
 
