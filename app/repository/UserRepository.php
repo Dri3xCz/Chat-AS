@@ -55,7 +55,7 @@
         }
 
         public function userMatch($user) : bool {
-            $sql = "SELECT * FROM User WHERE username LIKE ? AND password LIKE ?;";
+            $sql = "SELECT * FROM User WHERE username LIKE ? AND password LIKE ?";
 
             $prepared_sql = $this->conn->prepare($sql);
             $prepared_sql->execute([$user->name, md5($user->password)]);

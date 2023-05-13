@@ -17,8 +17,9 @@ $id_usecase = new GetUserIdUseCase($id_repository);
 
 $user_asked_class = new BasicUser($user_asked, "x");
 $user_asked_class = $id_usecase->getId($user_asked_class);
+$active_user_class = $id_usecase->getId($active_user);
 
 $request_repository = new FriendRequestRepository($conn);
-$request_usecase = new FriendRequestUseCase($request_repository, $active_user, $user_asked_class);
+$request_usecase = new FriendRequestUseCase($request_repository, $active_user_class, $user_asked_class);
 
 ?>

@@ -25,10 +25,14 @@ function chatArea() {
 }
 
 function friendArea() {
-    echo '<form action="./controller/friend_request.php" method="post">
-        <input type="text" name="username">
-        <input type="submit" value="Send request"> 
-    </form>';
+    
+    echo '<div class="ml-5 mt-2">
+        <h3>Přidat přítele</h3>
+        <form class="message-box w-100 d-flex" method="post" action="/controller/friend_request.php">
+            <input class="w-75" type="username" id="username" name="username">
+            <input type="submit" class="message-box-submit" value="">
+        </form> 
+    </div>';
 }
 
 ?>
