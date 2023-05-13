@@ -24,19 +24,9 @@ class UserRegisterUseCase {
         if($this->user->password != $this->user->password_confirm) {
             header("location: ../web/register/?error=different_passwords");
         } else {
-            $validate = $this->validateDatabaseData();
+            $validate = $this->register_repo->validateData($this->user->name);
             $this->finish($validate);
         }
-    }
-
-    public function validateDatabaseData() : bool {
-        $registered_usernames = $this->register_repo->fetchData();
-        for ($i = 0; $i < sizeof($registered_usernames); $i++) {
-            if ($this->user->name == $registered_usernames[$i]["username"]) {
-                return false;
-            }
-        }
-        return true;
     }
 
     public function finish($validate) {
@@ -63,23 +53,13 @@ class UserLoginUseCase {
     public function __construct($login_repo, $user) {
         $this->login_repo = $login_repo;
         $this->user = $user;
+        $this->check_credentials();
     }
 
     public function check_credentials() {
-        $user_matched = false;
-        $data = $this->login_repo->fetchData();
-
-        for ($i = 0; $i < sizeof($data); $i++) {
-            if ($data[$i]["username"] == $this->user->name) {
-                if($data[$i]["password"] == $this->user->password ) {
-                    $this->user->user_id = $data[$i]["idUser"];
-                    $_SESSION["user"] = $this->user;
-                    $user_matched = true;       
-                }
-            }
-        } 
         
-        if($user_matched) { 
+        if($this->login_repo->userMatch($this->user)) { 
+            $_SESSION["user"] = $this->user;
             header("location: ../");
         } else {
             header("location: ../web/login/?error=invalid_credentials"); 
