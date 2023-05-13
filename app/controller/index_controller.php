@@ -25,13 +25,33 @@ function chatArea() {
 }
 
 function friendArea() {
-    
-    echo '<div class="ml-5 mt-2">
-        <h3>Přidat přítele</h3>
-        <form class="message-box w-100 d-flex" method="post" action="/controller/friend_request.php">
-            <input class="w-75" type="username" id="username" name="username">
-            <input type="submit" class="message-box-submit" value="">
-        </form> 
+    echo '<div class="mt-2 container-fluid">
+        <div>
+            <h3>Přidat přítele</h3>
+            <form class="message-box w-100 d-flex" method="post" action="/controller/friend_request.php">
+                <input class="w-75" type="username" id="username" name="username">
+                <input type="submit" class="message-box-submit" value="">
+            </form> 
+        </div>
+        <div class="mt-2 row">
+            <div class="col-lg-8 col-md-10">
+                <h3>Žádosti o přátelství</h3>';
+                friendRequestsArea();
+            echo '</div>
+        </div>
+    </div>';
+}
+
+function friendRequestsArea() {
+    echo '<div class="chat-buffer d-flex justify-content-between">
+        <div class="chat-buffer-inside d-flex h-100">
+            <img src="assets/img/foxpfp.jpg" class="profile-pic" alt="">
+            <h3 class="username ml-2">placeholder</h3>
+        </div>
+        <form class="friend-request-buttons mr-2" method="post" action="ještě-nevim">
+            <input type="submit" name="response" value="accept" class="accept-input">
+            <input type="submit" name="response" value="decline" class="decline-input">
+        </div>
     </div>';
 }
 

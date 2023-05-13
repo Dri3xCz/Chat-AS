@@ -33,6 +33,11 @@ p {
     margin-left: 5px;
 }
 
+.chat-buffer-inside {
+    text-align: center;
+    align-items: center;
+}
+
 .chat-buffer > h3 {
     white-space: nowrap;
     text-overflow: ellipsis;
@@ -126,3 +131,33 @@ p {
     border-radius: 3px;
     cursor: pointer; 
 }
+
+.friend-request-buttons {
+    display: flex;
+    gap: 10px;
+    margin: 0;
+  }
+  
+  .accept-input, .decline-input {
+    border: none;
+    border-radius: 5px;
+    color: white;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: bold;
+    padding: 10px 15px;
+    transition: background-color 0.2s ease-in-out;
+  }
+  
+  .accept-input {
+    background-color: #4CAF50; /* Green */
+  }
+  
+  .decline-input {
+    background-color: #f44336; /* Red */
+  }
+  
+  .accept-button:hover, .decline-button:hover {
+    background-color: #555; /* Dark grey */
+  }
+  
