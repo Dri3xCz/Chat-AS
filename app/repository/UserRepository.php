@@ -71,18 +71,18 @@
         }
         
         public $sql_select_id = "SELECT user.idUser FROM user WHERE user.username = ?";
-        public $sql_select_friendships = "SELECT friendship.idUser2 FROM friendship WHERE friendship.idUser1 = ?";
+        public $sql_select_friendships = "SELECT User.username FROM friendship INNER JOIN User ON User.idUser = Friendship.idUser2 WHERE Friendship.idUser1 = ?";
 
         public function fetchId($user) : array {
             $prepared_sql = $this->conn->prepare($this->sql_select_id);
             $prepared_sql->execute([$user->name]);
-            $result = $prepared_sql->fetch();
+            $result = $prepared_sql->fetchall();
             return $result;
         }
 
         public function fetchFriendships($user) : array {
             $prepared_sql = $this->conn->prepare($this->sql_select_friendships);
-            $prepared_sql->execute([$this->fetchId($user)['idUser']]);
+            $prepared_sql->execute([$this->fetchId($user)[0]]);
             $result = $prepared_sql->fetchall();
             return $result;
         }

@@ -55,4 +55,18 @@ function friendRequestsArea() {
     </div>';
 }
 
+function friendList() {
+
+    require('./usecase/UserUseCase.php');
+    $user = new GetUserIdUseCase($_SESSION["user"]);
+    $user->selectFriendships();
+    for($i = 0;  $i < count($user); $i++)
+    {
+        echo "<div class='chat-buffer d-flex'>
+            <img src='assets/img/foxpfp.jpg' class='profile-pic' alt=''>
+            <h3 class='username'>{$user[1]}</h3>
+        </div>";
+    }
+}
+
 ?>

@@ -1,6 +1,7 @@
 <?php
 
 require("./domain/entities.php");
+require("./controller/index_controller.php");
 
 session_start();
 if(!isset($_SESSION["user"])){
@@ -27,19 +28,13 @@ if(!isset($_SESSION["user"])){
                     <img src="assets/img/foxpfp.jpg" class="profile-pic" alt="">
                     <h3 class="username">placeholder</h3>
                 </a>
-                <div class="chat-buffer d-flex">
-                    <img src="assets/img/foxpfp.jpg" class="profile-pic" alt="">
-                    <h3 class="username">placeholder</h3>
-                </div>
-                <div class="chat-buffer d-flex">
-                    <img src="assets/img/foxpfp.jpg" class="profile-pic" alt="">
-                    <h3 class="username">placeholder</h3>
-                </div>
+                <?php
+                    //friendList();
+                ?>
 
             </div>
             <div class="col-8 chat-main">
                 <?php
-                    require("./controller/index_controller.php");
                     chatArea();
                 ?>
 

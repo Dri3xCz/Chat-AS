@@ -82,6 +82,11 @@ class GetUserIdUseCase {
 
         return $new_user;
     } 
+
+    public function selectFriendships($user) : array {
+        $friends = $this->repo->fetchFriendships($user);
+        return $friends;
+    }
 }
 
 ?>
