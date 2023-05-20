@@ -1,7 +1,9 @@
 <?php
 
-require_once('../domain/entities.php');
-require_once('../repository/UserRepository.php');
+$path = $_SERVER['DOCUMENT_ROOT'];
+
+require_once($path . '/domain/entities.php');
+require_once($path . '/repository/UserRepository.php');
 
 session_start();
 
@@ -83,10 +85,18 @@ class GetUserIdUseCase {
         return $new_user;
     } 
 
+    public function getUserById($id) : BasicUserWithId {
+        $data = $this->repo->fetchUserById($id);
+        $new_user = new BasicUserWithId($data["username"], $data["password"], $data["idUser"]);
+        return $new_user;
+    }
+
     public function selectFriendships($user) : array {
         $friends = $this->repo->fetchFriendships($user);
         return $friends;
     }
 }
+
+
 
 ?>

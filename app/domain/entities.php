@@ -13,6 +13,14 @@ class BasicUser extends User {
     }
 }
 
+class BasicUserWithId extends User {
+    public function __construct($name, $password, $user_id) {
+        $this->name = $name;
+        $this->password = $password;
+        $this->user_id = $user_id;
+    }
+}
+
 class RegistrationUser extends User {
     public $password_confirm;
     public function __construct($name, $password, $password_confirm) {

@@ -12,7 +12,7 @@ $active_user  = $_SESSION["user"];
 
 $user_asked = $_POST["username"];
 
-$id_repository = new UserIdRepository($conn);
+$id_repository = new UserFindRepository($conn);
 $id_usecase = new GetUserIdUseCase($id_repository);
 
 $user_asked_class = new BasicUser($user_asked, "x");
@@ -20,6 +20,6 @@ $user_asked_class = $id_usecase->getId($user_asked_class);
 $active_user_class = $id_usecase->getId($active_user);
 
 $request_repository = new FriendRequestRepository($conn);
-$request_usecase = new FriendRequestUseCase($request_repository, $active_user_class, $user_asked_class);
+$request_usecase = new FriendSendRequestUseCase($request_repository, $active_user_class, $user_asked_class);
 
 ?>

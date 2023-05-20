@@ -1,10 +1,19 @@
 <?php
 
-function chatArea() {
+$path = $_SERVER['DOCUMENT_ROOT'];
+
+require_once($path . '/usecase/UserUseCase.php');
+require_once($path . '/usecase/friend_usecase.php');
+require_once($path . '/repository/friend_repository.php');
+include($path . '/connection.php');
+
+session_start();
+
+function chatArea($conn) {
     $status = isset($_GET["status"]) ? $_GET["status"] : "";
 
     if($status == "adding_friends") {
-        friendArea();
+        friendArea($conn);
     } else {
         echo '<div class="chat-space w-100">';
             echo '<div class="chat-message w-75 mt-2">';
@@ -24,7 +33,7 @@ function chatArea() {
     }
 }
 
-function friendArea() {
+function friendArea($conn) {
     echo '<div class="mt-2 container-fluid">
         <div>
             <h3>Přidat přítele</h3>
@@ -36,29 +45,47 @@ function friendArea() {
         <div class="mt-2 row">
             <div class="col-lg-8 col-md-10">
                 <h3>Žádosti o přátelství</h3>';
-                friendRequestsArea();
+                friendRequestsArea($conn);
             echo '</div>
         </div>
     </div>';
 }
 
-function friendRequestsArea() {
-    echo '<div class="chat-buffer d-flex justify-content-between">
-        <div class="chat-buffer-inside d-flex h-100">
-            <img src="assets/img/foxpfp.jpg" class="profile-pic" alt="">
-            <h3 class="username ml-2">placeholder</h3>
+function friendRequestsArea($conn) {
+
+    $active_user = $_SESSION['user'];
+    
+    $id_repository = new UserFindRepository($conn);
+    $id_usecase = new GetUserIdUseCase($id_repository);
+
+    $active_user = $id_usecase->getId($active_user);
+
+    $friend_repository = new FriendRequestRepository($conn);
+    $friend_usecase = new FetchFriendRequests($friend_repository, $id_repository, $active_user);
+    $request_array = $friend_usecase->GetRequests();
+
+    for($i = 0; $i < count($request_array); $i++) {
+        friendRequestHtml($request_array[$i]);
+    }
+}
+
+function friendRequestHtml($user) {
+    echo "<div class='chat-buffer d-flex justify-content-between'>
+        <div class='chat-buffer-inside d-flex h-100'>
+            <img src='assets/img/foxpfp.jpg' class='profile-pic' alt=''>
+            <h3 class='username ml-2'>{$user->name}</h3>
         </div>
-        <form class="friend-request-buttons mr-2" method="post" action="ještě-nevim">
-            <input type="submit" name="response" value="accept" class="accept-input">
-            <input type="submit" name="response" value="decline" class="decline-input">
-        </div>
-    </div>';
+        <form class='friend-request-buttons mr-2' method='post' action='{$path}/controller/friend_request_response.php'>
+            <input type='hidden' name'user_id' value='{$user->user_id}'>
+            <input type='submit' name='response' value='accept' class='accept-input'>
+            <input type='submit' name='response' value='decline' class='decline-input'>
+        </form>
+    </div>";
 }
 
 function friendList() {
+    $user = new GetUserIdUseCase($_SESSION["user"]); 
 
-    require('./usecase/UserUseCase.php');
-    $user = new GetUserIdUseCase($_SESSION["user"]);
     $user->selectFriendships();
     for($i = 0;  $i < count($user); $i++)
     {

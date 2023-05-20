@@ -1,7 +1,10 @@
 <?php
 
-require("./domain/entities.php");
-require("./controller/index_controller.php");
+$path = $_SERVER['DOCUMENT_ROOT'];
+
+require($path . "/domain/entities.php");
+require($path . "/controller/index_controller.php");
+include($path . "/connection.php");
 
 session_start();
 if(!isset($_SESSION["user"])){
@@ -35,7 +38,7 @@ if(!isset($_SESSION["user"])){
             </div>
             <div class="col-8 chat-main">
                 <?php
-                    chatArea();
+                    chatArea($conn);
                 ?>
 
                 <!--
