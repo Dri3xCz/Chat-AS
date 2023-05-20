@@ -73,7 +73,7 @@ class GetUserIdUseCase {
         $this->repo = $repo;
     }
 
-    public function getId($user) : BasicUser {
+    public function getId($user) : User {
         // TODO: Validace - user musí existovat
         
         $new_user = $user;
