@@ -8,6 +8,7 @@ class FriendRequestUseCase {
         $this->friend_repo = $friend_repo; 
         $this->active_user = $active_user;
         $this->user_asked = $user_asked;
+        
         $valid = $this->validate();
         $this->finish($valid); 
     } 
