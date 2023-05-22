@@ -34,6 +34,8 @@ function chatArea($conn) {
 }
 
 function friendArea($conn) {
+    $error = isset($_GET["error"]) ? $_GET["error"] : "";
+
     echo '<div class="mt-2 container-fluid">
         <div>
             <h3>Přidat přítele</h3>
@@ -41,8 +43,10 @@ function friendArea($conn) {
                 <input class="w-75" type="username" id="username" name="username">
                 <input type="submit" class="message-box-submit" value="">
             </form> 
-        </div>
-        <div class="mt-2 row">
+        </div>';
+        if($error == "invalid_request")
+            echo '<h5 style="color: red">Užitel neexistuje nebo již jste přátelé</h5>';
+        echo '<div class="mt-2 row">
             <div class="col-lg-8 col-md-10">
                 <h3>Žádosti o přátelství</h3>';
                 friendRequestsArea($conn);
