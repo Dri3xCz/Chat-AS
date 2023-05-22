@@ -6,8 +6,8 @@
             $this->conn = $conn;
         }
         
-        public $sql_select_name = "SELECT user.username FROM user;";
-        public $sql_select_id = "SELECT user.idUser FROM user WHERE user.username = ?;";
+        public $sql_select_name = "SELECT User.username FROM User;";
+        public $sql_select_id = "SELECT User.idUser FROM User WHERE User.username = ?;";
         public $sql_insert = "INSERT INTO User VALUES (NULL, ? , ?);";
         
         public function queryDb($user) { 
@@ -86,7 +86,7 @@
         public function fetchUserById($id) : array {
             $prepared_sql = $this->conn->prepare($this->sql_select_user_by_id);
             $prepared_sql->execute([$id]);
-            $result = $prepared_sql->fetch();
+            $result = $prepared_sql->fetch();   
             return $result;
         }
 
