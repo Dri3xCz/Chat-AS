@@ -32,7 +32,7 @@ if(!isset($_SESSION["user"])){
                     <h3 class="username">placeholder</h3>
                 </a>
                 <?php
-                    //friendList();
+                    //friendListArea();
                 ?>
 
             </div>

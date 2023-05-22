@@ -83,17 +83,11 @@ function friendRequestHtml($user) {
     </div>";
 }
 
-function friendList() {
-    $user = new GetUserIdUseCase($_SESSION["user"]); 
-
-    $user->selectFriendships();
-    for($i = 0;  $i < count($user); $i++)
-    {
-        echo "<div class='chat-buffer d-flex'>
+function friendListHtml($user) {
+    echo "<div class='chat-buffer d-flex'>
             <img src='assets/img/foxpfp.jpg' class='profile-pic' alt=''>
-            <h3 class='username'>{$user[1]}</h3>
+            <h3 class='username'>{$user->name}</h3>
         </div>";
-    }
 }
 
 ?>
