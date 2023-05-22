@@ -29,7 +29,7 @@ if(!isset($_SESSION["user"])){
             <div class="col-lg-2 col-4 chat-buffer-list">                
                 <a href="?user=placeholder" class="chat-buffer d-flex">
                     <img src="assets/img/foxpfp.jpg" class="profile-pic" alt="">
-                    <h3 class="username">placeholder</h3>
+                    <h3 class="username"><?php echo $_SESSION['user']->name ?></h3>
                 </a>
                 <?php
                     friendListArea($conn);
