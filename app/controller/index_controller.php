@@ -69,6 +69,21 @@ function friendRequestsArea($conn) {
     }
 }
 
+function friendListArea($conn) {
+
+    $active_user = $_SESSION['user'];
+    
+    $id_repository = new UserFindRepository($conn);
+    $id_usecase = new GetUserIdUseCase($id_repository);
+
+    $active_user = $id_usecase->getId($active_user);
+    $friendships = $id_usecase->selectFriendships($active_user);
+
+    for($i = 0; $i < count($friendships); $i++) {
+        friendListHtml($friendships[$i]);
+    }
+}
+
 function friendRequestHtml($user) {
     echo "<div class='chat-buffer d-flex justify-content-between'>
         <div class='chat-buffer-inside d-flex h-100'>
@@ -86,7 +101,7 @@ function friendRequestHtml($user) {
 function friendListHtml($user) {
     echo "<div class='chat-buffer d-flex'>
             <img src='assets/img/foxpfp.jpg' class='profile-pic' alt=''>
-            <h3 class='username'>{$user->name}</h3>
+            <h3 class='username'>{$user['username']}</h3>
         </div>";
 }
 
