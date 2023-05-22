@@ -70,9 +70,9 @@
             $this->conn = $conn;
         }
         
-        public $sql_select_id = "SELECT user.idUser FROM user WHERE user.username = ?";
-        public $sql_select_user_by_id = "SELECT * FROM user WHERE user.idUser = ?";
-        public $sql_select_friendships = "SELECT User.username FROM friendship INNER JOIN User ON User.idUser = Friendship.idUser2 WHERE Friendship.idUser1 = ?";
+        public $sql_select_id = "SELECT User.idUser FROM User WHERE User.username = ?";
+        public $sql_select_user_by_id = "SELECT * FROM User WHERE User.idUser = ?";
+        public $sql_select_friendships = "SELECT User.username FROM Uriendship INNER JOIN User ON User.idUser = Friendship.idUser2 WHERE Friendship.idUser1 = ?";
 
         public function fetchId($user) : array {
             $prepared_sql = $this->conn->prepare($this->sql_select_id);
