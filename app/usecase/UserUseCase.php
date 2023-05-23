@@ -75,15 +75,17 @@ class GetUserIdUseCase {
         $this->repo = $repo;
     }
 
-    public function getId($user) : User {
-        // TODO: Validace - user musí existovat
-        
+    public function getId($user) : User {       
         $new_user = $user;
         $data = $this->repo->fetchId($new_user);
         $new_user->user_id = $data["idUser"];
 
         return $new_user;
     } 
+
+    public function validateInput($username) : bool {
+        return $this->repo->userExists($username);
+    }
 
     public function getUserById($id) : BasicUserWithId {
         $data = $this->repo->fetchUserById($id);

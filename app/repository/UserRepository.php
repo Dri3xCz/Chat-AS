@@ -96,5 +96,14 @@
             $result = $prepared_sql->fetchall();
             return $result;
         }
+
+        public function userExists($username) : bool {
+            $sql = "SELECT username FROM User WHERE username LIKE ?;";
+
+            $prepared_sql = $this->conn->prepare($sql);
+            $prepared_sql->execute([$username]);
+            $result = $prepared_sql->fetchAll();
+            return sizeof($result) != 0;
+        }
     }
 ?>
