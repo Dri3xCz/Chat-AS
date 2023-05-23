@@ -82,4 +82,36 @@ class FetchFriendRequests {
     }
 }
 
+class HandleFriendRequest {
+    private $friend_repo;
+    private $active_user;
+    private $user_asked;
+    private $response;
+
+    public function __construct($friend_repo, $active_user, $user_asked, $response) {
+        $this->friend_repo = $friend_repo; 
+        $this->active_user = $active_user;
+        $this->user_asked = $user_asked;
+        $this->response = $response;
+
+        $this->finish();
+    }
+
+    public function finish() {
+        if($this->response == 'accept')
+            $this->addFriendship();
+        else
+            $this->deleteRequest();
+    }
+
+    public function deleteRequest() {
+        $this->friend_repo->deleteRequest($this->active_user, $this->user_asked);
+    }
+
+    public function addFriendship() {
+        $this->friend_repo->insertFriendship($this->active_user, $this->user_asked);
+        $this->friend_repo->deleteRequest($this->active_user, $this->user_asked);
+    }
+}
+
 ?>

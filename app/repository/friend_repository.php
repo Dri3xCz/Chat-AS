@@ -14,6 +14,8 @@ class FriendRequestRepository {
     "SELECT * FROM Friendship WHERE Friendship.idUser1 = ? OR Friendship.idUser2 = ?";
     public $sql_insert_friend_request = 
     "INSERT INTO FriendRequests VALUES (NULL, ?, ?)";
+    public $sql_insert_friendship =
+    "INSERT INTO Friendship VALUES (NULL, ?, ?)";
     public $sql_delete_request =
     "DELETE FROM FriendRequests WHERE FriendRequests.idUserAsked = ? AND FriendRequests.idUserRequesting = ?";
 
@@ -41,6 +43,16 @@ class FriendRequestRepository {
         $prepared_sql->execute([$active_user->user_id]);
         $result = $prepared_sql->fetchAll();
         return $result;
+    }
+
+    public function insertFriendship($user1, $user2) {
+        $prepared_sql = $this->conn->prepare($this->sql_insert_friendship);
+        $prepared_sql->execute([$user1->user_id, $user2->user_id]);
+    }
+
+    public function deleteRequest($user_requesting, $user_asked) {
+        $prepared_sql = $this->conn->prepare($this->sql_delete_request);
+        $prepared_sql->execute([$user_requesting->user_id, $user_asked->user_id]);
     }
 }
 ?>

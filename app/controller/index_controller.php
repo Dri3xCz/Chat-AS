@@ -95,7 +95,7 @@ function friendRequestHtml($user) {
             <h3 class='username ml-2'>{$user->name}</h3>
         </div>
         <form class='friend-request-buttons mr-2' method='post' action='{$path}/controller/friend_request_response.php'>
-            <input type='hidden' name'user_id' value='{$user->user_id}'>
+            <input type='hidden' name='user_id' value='{$user->user_id}'>
             <input type='submit' name='response' value='accept' class='accept-input'>
             <input type='submit' name='response' value='decline' class='decline-input'>
         </form>
