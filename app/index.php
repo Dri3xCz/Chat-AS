@@ -12,7 +12,7 @@ if(!isset($_SESSION["user"])){
 }
 ?>
 
-<html lang="en">
+<html lang="cs">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -29,11 +29,14 @@ if(!isset($_SESSION["user"])){
             <div class="col-lg-2 col-4 chat-buffer-list">                
                 <a href="?user=placeholder" class="chat-buffer d-flex">
                     <img src="assets/img/foxpfp.jpg" class="profile-pic" alt="">
-                    <h3 class="username"><?php echo $_SESSION['user']->name ?></h3>
+                    <h3 class="username">Můj profil</h3>
                 </a>
                 <?php
                     friendListArea($conn);
                 ?>
+                <a href="?status=adding_friends" class="chat-buffer d-flex">
+                    <h3 class="username">Přidat kamaráda</h3>
+                </a>
 
             </div>
             <div class="col-8 chat-main">
