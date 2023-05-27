@@ -27,61 +27,23 @@ if(!isset($_SESSION["user"])){
     <main class="container-fluid">
         <div class="row h-100">
             <div class="col-lg-2 col-4 chat-buffer-list">                
-                <a href="?user=placeholder" class="chat-buffer d-flex">
-                    <img src="assets/img/foxpfp.jpg" class="profile-pic" alt="">
-                    <h3 class="username">Můj profil</h3>
-                </a>
-                <?php
-                    friendListArea($conn);
-                ?>
+                <div class="w-100 h-90">
+                    <a href="/" class="chat-buffer d-flex">
+                        <img src="assets/img/foxpfp.jpg" class="profile-pic" alt="">
+                        <h3 class="username">Můj profil</h3>
+                    </a>
+                    <?php
+                        friendListArea($conn);
+                    ?> 
+                </div>
                 <a href="?status=adding_friends" class="chat-buffer d-flex">
                     <h3 class="username">Přidat kamaráda</h3>
                 </a>
-
             </div>
             <div class="col-8 chat-main">
                 <?php
                     chatArea($conn);
                 ?>
-
-                <!--
-                <div class="chat-space w-100">
-                    <div class="chat-message w-75 mt-2">
-                        <div class="message-info d-flex align-items-center">
-                            <img src="assets/img/foxpfp.jpg" class="profile-pic" alt="">
-                            <h3>Placeholder <span>Datum</span></h3>
-                        </div>
-                        <div class="message-content ml-5">
-                            <p class="ml-5">Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Nulla turpis magna, cursus sit amet, suscipit a, interdum id, felis. Mauris dolor felis, sagittis at, luctus sed, aliquam non, tellus. Duis bibendum, lectus ut viverra rhoncus, dolor nunc faucibus libero, eget facilisis enim ipsum id lacus. Ut tempus purus at lorem. Integer malesuada. Vivamus porttitor turpis ac leo. Mauris suscipit, ligula sit amet pharetra semper, nibh ante cursus purus, vel sagittis velit mauris vel metus. Sed vel lectus. Donec odio tempus molestie, porttitor ut, iaculis quis, sem. Etiam dictum tincidunt diam. Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit q</p>
-                        </div>
-                    </div>
-                    <div class="chat-message w-75 mt-2">
-                        <div class="message-info d-flex align-items-center">
-                            <img src="assets/img/foxpfp.jpg" class="profile-pic" alt="">
-                            <h3>Placeholder <span>Datum</span></h3>
-                        </div>
-                        <div class="message-content ml-5">
-                            <p class="ml-5">Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Nulla turpis magna, cursus sit amet, suscipit a, interdum id, felis. Mauris dolor felis, sagittis at, luctus sed, aliquam non, tellus. Duis bibendum, lectus ut viverra rhoncus, dolor nunc faucibus libero, eget facilisis enim ipsum id lacus. Ut tempus purus at lorem. Integer malesuada. Vivamus porttitor turpis ac leo. Mauris suscipit, ligula sit amet pharetra semper, nibh ante cursus purus, vel sagittis velit mauris vel metus. Sed vel lectus. Donec odio tempus molestie, porttitor ut, iaculis quis, sem. Etiam dictum tincidunt diam. Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit q</p>
-                        </div>
-                    </div>
-                    <div class="chat-message w-75 ml-2">
-                        <div class="message-info d-flex align-items-center">
-                            <img src="assets/img/foxpfp.jpg" class="profile-pic" alt="">
-                            <h3>Placeholder <span>Datum</span></h3>
-                        </div>
-                        <div class="message-content ml-5">
-                            <p class="ml-5">Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Nulla turpis magna, cursus sit amet, suscipit a, interdum id, felis. Mauris dolor felis, sagittis at, luctus sed, aliquam non, tellus. Duis bibendum, lectus ut viverra rhoncus, dolor nunc faucibus libero, eget facilisis enim ipsum id lacus. Ut tempus purus at lorem. Integer malesuada. Vivamus porttitor turpis ac leo. Mauris suscipit, ligula sit amet pharetra semper, nibh ante cursus purus, vel sagittis velit mauris vel metus. Sed vel lectus. Donec odio tempus molestie, porttitor ut, iaculis quis, sem. Etiam dictum tincidunt diam. Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit q</p>
-                        </div>
-                    </div>
-
-                </div>     
-                
-                
-                <form class="message-box w-100 d-flex ml-5" action="/submit/?user=<?php echo urlencode($_GET["user"]); ?>" method="post">
-                    <input class="w-75 ml-5" type="text" id="text" name="text">                
-                    <input type="submit" class="message-box-submit" value="">
-                </form>      
-                -->
             </div>
             <div class="col-sm-2 d-none d-lg-block profile-info"></div>
         </div>
