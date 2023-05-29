@@ -45,6 +45,10 @@ p {
     overflow-y: hidden ;
 }
 
+.chat-buffer:hover {
+    background-color: lightgray;
+}
+
 .profile-pic {
     height: 64px;
     width: 64px;
@@ -136,9 +140,9 @@ p {
     display: flex;
     gap: 10px;
     margin: 0;
-  }
+}
   
-  .accept-input, .decline-input {
+.accept-input, .decline-input {
     border: none;
     border-radius: 5px;
     color: white;
@@ -147,17 +151,26 @@ p {
     font-weight: bold;
     padding: 10px 15px;
     transition: background-color 0.2s ease-in-out;
-  }
+}
   
-  .accept-input {
+.accept-input {
     background-color: #4CAF50; /* Green */
-  }
+}
   
-  .decline-input {
+.decline-input {
     background-color: #f44336; /* Red */
-  }
+}
   
-  .accept-button:hover, .decline-button:hover {
+.accept-button:hover, .decline-button:hover {
     background-color: #555; /* Dark grey */
-  }
-  
+}
+
+.h-90 {
+    height: 90%;
+}
+
+a {
+    color: black !important;
+    text-decoration: none !important;
+
+}
