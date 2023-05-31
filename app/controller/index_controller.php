@@ -15,7 +15,7 @@ function chatArea($conn) {
     if($status == "adding_friends") {
         friendArea($conn);
     } else {
-        echo '<div class="chat-space w-100">';
+        echo '<div class="chat-space w-100" id="chatSpace">';
             echo '<div class="chat-message w-75 mt-2">';
                 echo '<div class="message-info d-flex align-items-center">';
                     echo '<img src="assets/img/foxpfp.jpg" class="profile-pic" alt="">';
@@ -103,10 +103,13 @@ function friendRequestHtml($user) {
 }
 
 function friendListHtml($user) {
-    echo "<div class='chat-buffer d-flex'>
-            <img src='assets/img/foxpfp.jpg' class='profile-pic' alt=''>
-            <h3 class='username'>{$user['username']}</h3>
-        </div>";
+    echo "<form>
+    <label for='username-input' class='chat-buffer d-flex'>
+      <img src='assets/img/foxpfp.jpg' class='profile-pic' alt=''>
+      <h3 class='username'>{$user['username']}</h3>
+      <input type='submit' id='username-input' name='friendName' value='{$user['username']}' style='display: none;'>
+    </label>
+  </form>";
 }
 
 ?>

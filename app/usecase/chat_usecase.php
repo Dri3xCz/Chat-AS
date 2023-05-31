@@ -9,15 +9,16 @@ session_start();
 
 class GetMessagesUseCase {
     public $repo;
-    public $idFriendship;
-    public function __construct($repo, $idFriendship) {
+    public $user1;
+    public $user2;
+    public function __construct($repo, $user1, $user2) {
         $this->repo = $repo;
-        $this->idFriendship = $idFriendship;
-        $this->finish();
+        $this->user1 = $user1;
+        $this->user2 = $user2;
     }
 
-    public function finish() {
-        $this->repo->fetchMessages($this->idFriendship);
+    public function finish() : array {
+        return $this->repo->fetchMessages($this->user1->user_id, $this->user2->user_id);
     }
 }
 

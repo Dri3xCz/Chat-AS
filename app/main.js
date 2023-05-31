@@ -14,9 +14,10 @@ function getMessages() {
     $.ajax({
         url: "controller/chat.php",
         type: "POST",
-        data: { action: "get" },
+        data: { action: "get", friend: findGetParameter("friendName")},
         success: function(response) {
-            $(".chat-space w-100").html(response);
+            console.log("success");
+            $('#chatSpace').html(response);
         }
     });
 }
@@ -34,4 +35,17 @@ function sendMessage() {
             }
         });
     }
+}
+
+function findGetParameter(parameterName) {
+    var result = null,
+        tmp = [];
+    location.search
+        .substr(1)
+        .split("&")
+        .forEach(function (item) {
+          tmp = item.split("=");
+          if (tmp[0] === parameterName) result = decodeURIComponent(tmp[1]);
+        });
+    return result;
 }

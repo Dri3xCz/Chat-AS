@@ -7,11 +7,13 @@
         }
 
         public $sql_insert_messages = "INSERT INTO Chat VALUES (NULL, ?, ?, ?, ?)";
-        public $sql_select_messages = "SELECT * FROM Chat WHERE Chat.idFriendship = ?";
+        public $sql_select_messages = "SELECT Chat.content, Chat.time, Chat.idUser FROM Chat
+        INNER JOIN Friendship ON Chat.idFriendship LIKE Friendship.idFriendship
+        WHERE Friendship.idUser1 LIKE ? AND Friendship.idUser2 LIKE ?";
 
-        public function fetchMessages($idFriendship) : array {
+        public function fetchMessages($idUser1, $idUser2) : array {
             $prepared_sql = $this->conn->prepare($this->sql_select_messages);
-            $prepared_sql->execute([$idFriendship]);
+            $prepared_sql->execute([$idUser1, $idUser2]);
             $result = $prepared_sql->fetchAll();
             return $result;
         }
