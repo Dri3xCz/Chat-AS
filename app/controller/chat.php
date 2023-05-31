@@ -38,9 +38,16 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && !empty($_POST['friend'])) {
                 echo '</div>';
             echo '</div>';
         }
-    } elseif ($_POST['action'] === 'send' && isset($_POST['message'])) {
-        $message = $_POST['message'];
+    } elseif ($_POST['action'] === 'send' && isset($_POST['message']) && !empty($_POST['friend'])) {
+        $active_user  = $_SESSION["user"];
 
-        //uložení do databáze
+        $user2 = $_POST['friend'];
+
+
+        $message = $_POST['message'];
+        $chat_repository = new ChatRepository($conn);
+        //Get Friendship ID
+        //$chat_usecase = new SendMessagesUseCase();
+        $chat_usecase->finish();
     }
 }

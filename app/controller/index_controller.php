@@ -26,10 +26,10 @@ function chatArea($conn) {
                 echo '</div>';
             echo '</div>';
         echo '</div>';
-        echo '<form class="message-box w-100 d-flex ml-5 method="post">';
+        echo '<div class="message-box w-100 d-flex ml-5">';
             echo '<input class="w-75 ml-5" type="text" id="text" name="text">';
-            echo '<input type="submit" onclick="sendMessage()" class="message-box-submit" value="">';
-        echo '</form>';
+            echo '<button type="submit" onclick="sendMessage()" class="message-box-submit" value="">';
+        echo '</div>';
     }
 }
 

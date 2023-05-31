@@ -11,7 +11,7 @@
         INNER JOIN Friendship ON Chat.idFriendship LIKE Friendship.idFriendship
         INNER JOIN User ON Chat.idUser LIKE User.idUser
         WHERE Friendship.idUser1 LIKE ? AND Friendship.idUser2 LIKE ?
-        ORDER BY time";
+        ORDER BY time DESC";
 
         public function fetchMessages($idUser1, $idUser2) : array {
             $prepared_sql = $this->conn->prepare($this->sql_select_messages);

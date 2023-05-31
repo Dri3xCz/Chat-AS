@@ -16,19 +16,19 @@ function getMessages() {
         type: "POST",
         data: { action: "get", friend: findGetParameter("friendName")},
         success: function(response) {
-            console.log("success");
             $('#chatSpace').html(response);
         }
     });
 }
 
 function sendMessage() {
-    var message = $("#message").val();
+    console.log("Click");
+    var message = $("#text").val();
     if (message !== "") {
         $.ajax({
             url: "controller/chat.php",
             type: "POST",
-            data: { action: "send", message: message },
+            data: { action: "send", friend: findGetParameter("friendName"), message: message },
             success: function() {
                 $("#text").val("");
                 getMessages();

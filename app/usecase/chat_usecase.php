@@ -24,7 +24,19 @@ class GetMessagesUseCase {
 
 class SendMessagesUseCase {
     public $repo;
-    public function __construct($repo) {
+    public $idFriendship;
+    public $user;
+    public $payload;
+    public $time;
+    public function __construct($repo, $idFriendship, $user, $payload) {
         $this->repo = $repo;
+        $this->idFriendship = $idFriendship;
+        $this->user = $user;
+        $this->payload = $payload;
+    }
+
+    public function finish() {
+        $this->time = date("Y-m-m H:i:s");
+        $this->repo->insertMessages($this->idFriendship, $this->user->user_id, $this->payload, $this->time);
     }
 }
