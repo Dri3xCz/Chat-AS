@@ -1,11 +1,8 @@
 <?php
-
-$path = $_SERVER['DOCUMENT_ROOT'];
-
-require_once($path . '/usecase/UserUseCase.php');
-require_once($path . '/usecase/friend_usecase.php');
-require_once($path . '/repository/friend_repository.php');
-include($path . '/connection.php');
+require_once('../usecase/UserUseCase.php');
+require_once('../usecase/friend_usecase.php');
+require_once('../repository/friend_repository.php');
+require_once('../connection.php');
 
 session_start();
 
@@ -85,7 +82,7 @@ function friendRequestHtml($user) {
             <img src='assets/img/foxpfp.jpg' class='profile-pic' alt=''>
             <h3 class='username ml-2'>{$user->name}</h3>
         </div>
-        <form class='friend-request-buttons mr-2' method='post' action='{$path}/controller/friend_request_response.php'>
+        <form class='friend-request-buttons mr-2' method='post' action='friend_request_response.php'>
             <input type='hidden' name='user_id' value='{$user->user_id}'>
             <input type='submit' name='response' value='accept' class='accept-input'>
             <input type='submit' name='response' value='decline' class='decline-input'>

@@ -1,10 +1,10 @@
 <?php
 
-require_once("../domain/entities.php");
-require_once("../repository/friend_repository.php");
+require_once('../domain/entities.php');
+require_once('../repository/friend_repository.php');
 require_once('../usecase/UserUseCase.php');
 require_once('../usecase/friend_usecase.php');
-include("../connection.php");
+require_once('../connection.php');
 
 session_start();
 

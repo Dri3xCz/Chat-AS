@@ -1,7 +1,7 @@
 <?php
     require_once('../domain/entities.php');
     require_once('../usecase/UserUseCase.php');
-    include('../connection.php');
+    require_once('../connection.php');
 
     $username = $_POST['username'];
     $password = $_POST['password'];
