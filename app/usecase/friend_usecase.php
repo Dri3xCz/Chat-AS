@@ -1,6 +1,7 @@
 <?php
-require_once('../domain/entities.php');
-require_once('../connection.php');
+$path = $_SERVER['DOCUMENT_ROOT'];
+require_once($path . '/domain/entities.php');
+require_once($path . '/connection.php');
 
 class FriendSendRequestUseCase {
     public $friend_repo;

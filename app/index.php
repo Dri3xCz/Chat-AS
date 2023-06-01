@@ -1,8 +1,8 @@
 <?php
-
-require('domain/entities.php');
-require('controller/index_controller.php');
-include('connection.php');
+$path = $_SERVER['DOCUMENT_ROOT'];
+require_once($path . '/domain/entities.php');
+require_once($path . '/controller/index_controller.php');
+require_once($path . '/connection.php');
 
 session_start();
 if(!isset($_SESSION["user"])){

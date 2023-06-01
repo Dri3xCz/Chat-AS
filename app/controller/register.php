@@ -1,7 +1,8 @@
 <?php
-    require_once('../domain/entities.php');
-    require_once('../usecase/UserUseCase.php');
-    require_once('../connection.php');
+    $path = $_SERVER['DOCUMENT_ROOT'];
+    require_once($path . '/domain/entities.php');
+    require_once($path .'/usecase/UserUseCase.php');
+    require_once($path .'/connection.php');
 
     $username = $_POST['username'];
     $password = $_POST['password'];
