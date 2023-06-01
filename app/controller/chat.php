@@ -43,11 +43,18 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && !empty($_POST['friend'])) {
 
         $user2 = $_POST['friend'];
 
-
         $message = $_POST['message'];
+
+        $id_repository = new UserFindRepository($conn);
+        $id_usecase = new GetUserIdUseCase($id_repository);
+
+        $user2_class = new BasicUser($user2, "x");
+
+        $user2_class = $id_usecase->getId($user2_class);
+        $active_user_class = $id_usecase->getId($active_user);
+
         $chat_repository = new ChatRepository($conn);
-        //Get Friendship ID
-        //$chat_usecase = new SendMessagesUseCase();
+        $chat_usecase = new SendMessagesUseCase($chat_repository, $active_user_class, $user2_class, $message);
         $chat_usecase->finish();
     }
 }
