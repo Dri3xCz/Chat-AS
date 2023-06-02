@@ -1,10 +1,9 @@
 <?php
-$path = $_SERVER['DOCUMENT_ROOT']; 
-require_once($path . '/domain/entities.php');
-require_once($path . '/repository/friend_repository.php');
-require_once($path . '/usecase/UserUseCase.php');
-require_once($path . '/usecase/friend_usecase.php');
-require_once($path . '/connection.php');
+ require_once __DIR__ . '/../domain/entities.php';
+ require_once __DIR__ . '/../repository/friend_repository.php';
+ require_once __DIR__ . '/../usecase/UserUseCase.php';
+ require_once __DIR__ . '/../usecase/friend_usecase.php';
+ require_once __DIR__ . '/../connection.php';
 
 session_start();
 

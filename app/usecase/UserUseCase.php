@@ -1,7 +1,6 @@
 <?php
-$path = $_SERVER['DOCUMENT_ROOT'];
-require_once($path . '/domain/entities.php');
-require_once($path . '/repository/UserRepository.php');
+require_once __DIR__ . '/../domain/entities.php';
+require_once __DIR__ . '/../repository/UserRepository.php';
 
 session_start();
 

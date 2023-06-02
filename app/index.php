@@ -1,8 +1,7 @@
 <?php
-$path = $_SERVER['DOCUMENT_ROOT'];
-require_once($path . '/domain/entities.php');
-require_once($path . '/controller/index_controller.php');
-require_once($path . '/connection.php');
+require_once __DIR__ . '/domain/entities.php';
+require_once __DIR__ . '/controller/index_controller.php';
+require_once __DIR__ . '/connection.php';
 
 session_start();
 if(!isset($_SESSION["user"])){

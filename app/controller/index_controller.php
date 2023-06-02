@@ -1,9 +1,8 @@
 <?php
-$path = $_SERVER['DOCUMENT_ROOT']; 
-require_once($path . '/usecase/UserUseCase.php');
-require_once($path . '/usecase/friend_usecase.php');
-require_once($path . '/repository/friend_repository.php');
-require_once($path . '/connection.php');
+require_once __DIR__ . '/../usecase/UserUseCase.php';
+require_once __DIR__ . '/../usecase/friend_usecase.php';
+require_once __DIR__ . '/../repository/friend_repository.php';
+require_once __DIR__ . '/../connection.php';
 
 session_start();
 
@@ -28,7 +27,7 @@ function friendArea($conn) {
     echo "<div class='mt-2 container-fluid'>
         <div>
             <h3>Přidat přítele</h3>
-            <form class='message-box w-100 d-flex' method='post' action='{$path}/controller/friend_request.php'>
+            <form class='message-box w-100 d-flex' method='post' action='controller/friend_request.php'>
                 <input class='w-75' type='username' id='username' name='username'>
                 <input type='submit' class='message-box-submit' value=''>
             </form> 
@@ -83,7 +82,7 @@ function friendRequestHtml($user) {
             <img src='assets/img/foxpfp.jpg' class='profile-pic' alt=''>
             <h3 class='username ml-2'>{$user->name}</h3>
         </div>
-        <form class='friend-request-buttons mr-2' method='post' action='{$path}/controller/friend_request_response.php'>
+        <form class='friend-request-buttons mr-2' method='post' action='controller/friend_request_response.php'>
             <input type='hidden' name='user_id' value='{$user->user_id}'>
             <input type='submit' name='response' value='accept' class='accept-input'>
             <input type='submit' name='response' value='decline' class='decline-input'>
