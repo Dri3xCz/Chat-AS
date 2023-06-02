@@ -79,7 +79,7 @@ function friendListArea($conn) {
 function friendRequestHtml($user) {
     echo "<div class='chat-buffer d-flex justify-content-between'>
         <div class='chat-buffer-inside d-flex h-100'>
-            <img src='assets/img/foxpfp.jpg' class='profile-pic' alt=''>
+            <img src='assets/img/defaultIcon.jpeg' class='profile-pic' alt=''>
             <h3 class='username ml-2'>{$user->name}</h3>
         </div>
         <form class='friend-request-buttons mr-2' method='post' action='controller/friend_request_response.php'>
@@ -93,7 +93,7 @@ function friendRequestHtml($user) {
 function friendListHtml($user) {
     echo "<form>
     <label for='{$user['username']}' class='chat-buffer d-flex'>
-      <img src='assets/img/foxpfp.jpg' class='profile-pic' alt=''>
+      <img src='assets/img/defaultIcon.jpeg' class='profile-pic' alt=''>
       <h3 class='username'>{$user['username']}</h3>
       <input type='submit' id='{$user['username']}' name='friendName' value='{$user['username']}' style='display: none;'>
     </label>

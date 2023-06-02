@@ -28,7 +28,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && !empty($_POST['friend'])) {
         foreach ($messages as $message) {
             echo '<div class="chat-message w-75 mt-2">';
                 echo '<div class="message-info d-flex align-items-center">';
-                    echo '<img src="assets/img/foxpfp.jpg" class="profile-pic" alt="">';
+                    echo '<img src="assets/img/defaultIcon.jpeg" class="profile-pic" alt="">';
                     echo "<h3>{$message['username']} <span>{$message['time']}</span></h3>";
                 echo '</div>';
                 echo '<div class="message-content ml-5">';

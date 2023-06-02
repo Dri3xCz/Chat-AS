@@ -28,7 +28,7 @@ if(!isset($_SESSION["user"])){
             <div class="col-lg-2 col-4 chat-buffer-list">                
                 <div class="w-100 h-90">
                     <a href="/" class="chat-buffer d-flex">
-                        <img src="assets/img/foxpfp.jpg" class="profile-pic" alt="">
+                        <img src="assets/img/defaultIcon.jpeg" class="profile-pic" alt="">
                         <h3 class="username">Můj profil</h3>
                     </a>
                     <?php
