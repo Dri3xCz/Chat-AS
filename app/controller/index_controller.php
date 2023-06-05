@@ -33,7 +33,7 @@ function friendArea($conn) {
             </form> 
         </div>";
         if($error == "invalid_request")
-            echo '<h5 style="color: red">Užitel neexistuje nebo již jste přátelé</h5>';
+            echo '<h5 style="color: red">Uživatel neexistuje nebo již jste přátelé</h5>';
         echo '<div class="mt-2 row">
             <div class="col-lg-8 col-md-10">
                 <h3>Žádosti o přátelství</h3>';
