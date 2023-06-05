@@ -14,8 +14,8 @@ function chatArea($conn) {
     } else {
         echo '<div class="chat-space w-100" id="chatSpace">';
         echo '</div>';
-        echo '<div class="message-box w-100 d-flex ml-5">';
-            echo '<input class="w-75 ml-5" type="text" id="text" name="text">';
+        echo '<div class="message-box w-100 d-flex ml-1 ml-lg-5">';
+            echo '<input class="w-75 ml-1 ml-lg-5" type="text" id="text" name="text">';
             echo '<button type="submit" onclick="sendMessage()" class="message-box-submit" value="">';
         echo '</div>';
     }

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="WebServers">
+    <option name="servers">
+      <webServer id="b23d6583-a28c-4c2b-949e-9a66f026e5cb" name="zlab" url="http://lab.uzlabina.cz/~hakluka">
+        <fileTransfer accessType="FTPS" host="lab.uzlabina.cz" port="21">
+          <advancedOptions>
+            <advancedOptions dataProtectionLevel="Private" passiveMode="true" shareSSLContext="true" />
+          </advancedOptions>
+        </fileTransfer>
+      </webServer>
+    </option>
+  </component>
+</project>

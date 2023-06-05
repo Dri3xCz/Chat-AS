@@ -76,6 +76,14 @@ p {
     margin-left: 10px;
 }
 
+icon {
+    background: black;
+    display: block;
+    position: absolute;
+    right: 0;
+    top: 0;
+}
+
 .profile-info {
     background-color: #FFFFFF;
     filter: drop-shadow(4px 0 32px rgba(0,0,0,.25));
@@ -133,7 +141,7 @@ p {
     padding: 5px 10px;
     border: none;
     border-radius: 3px;
-    cursor: pointer; 
+    cursor: pointer;
 }
 
 .friend-request-buttons {
@@ -165,8 +173,8 @@ p {
     background-color: #555; /* Dark grey */
 }
 
-.h-90 {
-    height: 90%;
+.h-85 {
+    height: 85%;
 }
 
 a {

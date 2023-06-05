@@ -18,6 +18,7 @@ if(!isset($_SESSION["user"])){
     <!-- BOOTSTRAP 4.0 -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous"> 
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <script src="main.js"></script>
 </head>
@@ -25,9 +26,15 @@ if(!isset($_SESSION["user"])){
     
     <main class="container-fluid">
         <div class="row h-100">
-            <div class="col-lg-2 col-4 chat-buffer-list">                
-                <div class="w-100 h-90">
-                    <a href="/" class="chat-buffer d-flex">
+            <a href="javascript:void(0);" style="display: none" id="toggle-button" class="icon d-lg-none " onclick="toggleFriendList()">
+                <i class="fa fa-bars"></i>
+            </a>
+            <div class="col-4 col-lg-2 chat-buffer-list" id="friend-list">
+                <a href="javascript:void(0);" class="icon d-lg-none" onclick="toggleFriendList()">
+                    <i class="fa fa-bars"></i>
+                </a>
+                <div class="w-100 h-85">
+                    <a href="./" class="chat-buffer d-flex">
                         <img src="assets/img/defaultIcon.jpeg" class="profile-pic" alt="">
                         <h3 class="username">Můj profil</h3>
                     </a>
@@ -38,13 +45,15 @@ if(!isset($_SESSION["user"])){
                 <a href="?status=adding_friends" class="chat-buffer d-flex">
                     <h3 class="username">Přidat kamaráda</h3>
                 </a>
+                <a href="./controller/logout.php" class="chat-buffer d-flex">
+                    <h3 class="username">Odhlásit se</h3>
+                </a>
             </div>
-            <div class="col-8 chat-main">
+            <div class="col-8 col-lg-10 chat-main" id="chat-main">
                 <?php
                     chatArea($conn);
                 ?>
             </div>
-            <div class="col-sm-2 d-none d-lg-block profile-info"></div>
         </div>
     </main>    
 </body>
