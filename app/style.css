@@ -59,6 +59,7 @@ p {
     height: 90%;
     overflow: scroll;
     overflow-x: hidden;
+    overflow-wrap: break-word;
 }
 
 .message-box-submit {    
