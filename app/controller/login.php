@@ -1,6 +1,6 @@
 <?php
     require_once __DIR__ . '/../domain/entities.php';
-    require_once __DIR__ . '/../usecase/UserUseCase.php';
+    require_once __DIR__ . '/../usecase/user_usecase.php';
     require_once __DIR__ . '/../connection.php';
 
     $username = $_POST['username'];
