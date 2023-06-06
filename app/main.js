@@ -19,10 +19,11 @@ function getMessages() {
             $('#chatSpace').html(response);
         }
     });
+    var element = document.querySelector('#chatSpace');
+    element.scrollTop = element.scrollHeight;
 }
 
 function sendMessage() {
-    console.log("Click");
     var message = $("#text").val();
     if (message !== "") {
         $.ajax({
