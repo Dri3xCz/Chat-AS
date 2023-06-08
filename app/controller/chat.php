@@ -7,22 +7,13 @@
 
 session_start();
 
-if ($_SERVER['REQUEST_METHOD'] === 'POST' && !empty($_POST['friend'])) {
+if ($_SERVER['REQUEST_METHOD'] === 'POST' && !empty($_SESSION['friendshipId'])) {
     if ($_POST['action'] === 'get') {
-        $active_user  = $_SESSION["user"];
-
-        $user2 = $_POST['friend'];
-
-        $id_repository = new UserFindRepository($conn);
-        $id_usecase = new GetUserIdUseCase($id_repository);
-
-        $user2_class = new BasicUser($user2, "x");
-
-        $user2_class = $id_usecase->getId($user2_class);
-        $active_user_class = $id_usecase->getId($active_user);
+        $friendshipId = $_SESSION['friendshipId'];
+        $userId = $_SESSION['user']->user_id;
 
         $chat_repository = new ChatRepository($conn);
-        $chat_usecase = new GetMessagesUseCase($chat_repository, $active_user_class, $user2_class);
+        $chat_usecase = new GetMessagesUseCase($chat_repository, $userId, $friendshipId);
         $messages = $chat_usecase->finish();
 
         foreach ($messages as $message) {
@@ -36,23 +27,12 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && !empty($_POST['friend'])) {
                 echo '</div>';
             echo '</div>';
         }
-    } elseif ($_POST['action'] === 'send' && isset($_POST['message']) && !empty($_POST['friend'])) {
-        $active_user  = $_SESSION["user"];
-
-        $user2 = $_POST['friend'];
-
-        $message = $_POST['message'];
-
-        $id_repository = new UserFindRepository($conn);
-        $id_usecase = new GetUserIdUseCase($id_repository);
-
-        $user2_class = new BasicUser($user2, "x");
-
-        $user2_class = $id_usecase->getId($user2_class);
-        $active_user_class = $id_usecase->getId($active_user);
+    } elseif ($_POST['action'] === 'send' && isset($_POST['message']) && !empty($_SESSION['friendshipId'])) {
+        $friendshipId = $_SESSION['friendshipId'];
+        $userId = $_SESSION['user']->user_id;
 
         $chat_repository = new ChatRepository($conn);
-        $chat_usecase = new SendMessagesUseCase($chat_repository, $active_user_class, $user2_class, $message);
+        $chat_usecase = new SendMessagesUseCase($chat_repository, $userId, $friendshipId, $message);
         $chat_usecase->finish();
     }
 }
