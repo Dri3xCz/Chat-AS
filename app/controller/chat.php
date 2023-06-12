@@ -30,6 +30,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && !empty($_SESSION['friendshipId'])) 
     } elseif ($_POST['action'] === 'send' && isset($_POST['message']) && !empty($_SESSION['friendshipId'])) {
         $friendshipId = $_SESSION['friendshipId'];
         $userId = $_SESSION['user']->user_id;
+        $message = $_POST['message'];
 
         $chat_repository = new ChatRepository($conn);
         $chat_usecase = new SendMessagesUseCase($chat_repository, $userId, $friendshipId, $message);

@@ -2,7 +2,7 @@
 <project version="4">
   <component name="WebServers">
     <option name="servers">
-      <webServer id="a36e37b7-e6c3-4f90-99bc-cf07cea1060a" name="lab" url="http://lab.uzlabina.cz/~hachlad/">
+      <webServer id="3fceffed-3b53-48b1-b055-3535ad423a2c" name="lab" url="http://lab.uzlabina.cz/~hachlad">
         <fileTransfer accessType="FTPS" host="lab.uzlabina.cz" port="21">
           <advancedOptions>
             <advancedOptions dataProtectionLevel="Private" passiveMode="true" shareSSLContext="true" />
