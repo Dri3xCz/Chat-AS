@@ -1,6 +1,6 @@
 <?php
 require_once __DIR__ . '/../domain/entities.php';
-require_once __DIR__ . '/../repository/UserRepository.php';
+require_once __DIR__ . '/../repository/user_repository.php';
 
 session_start();
 
@@ -52,10 +52,10 @@ class UserLoginUseCase {
     public function __construct($login_repo, $user) {
         $this->login_repo = $login_repo;
         $this->user = $user;
-        $this->check_credentials();
+        $this->checkCredentials();
     }
 
-    public function check_credentials() {
+    public function checkCredentials() {
                
         if($this->login_repo->userMatch($this->user)) { 
             $_SESSION["user"] = $this->user;

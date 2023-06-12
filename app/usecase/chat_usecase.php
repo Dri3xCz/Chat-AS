@@ -6,20 +6,12 @@ session_start();
 
 class GetMessagesUseCase {
     public $repo;
-    public $user1;
-    public $user2;
+    public $idUser;
     public $idFriendship;
-    public function __construct($repo, $user1, $user2) {
+    public function __construct($repo, $idUser, $idFriendship) {
         $this->repo = $repo;
-        $this->user1 = $user1;
-        $this->user2 = $user2;
-
-        $this->idFriendship = $this->getIdFriendship();
-    }
-
-    public function getIdFriendship() : int {
-        $id = $this->repo->fetchIdFriendship($this->user1->user_id, $this->user2->user_id);
-        return $id['idFriendship'];
+        $this->idUser = $idUser;
+        $this->idFriendship = $idFriendship;
     }
 
     public function finish() : array {
@@ -43,13 +35,27 @@ class SendMessagesUseCase {
         $this->idFriendship = $this->getIdFriendship();
     }
 
-    public function getIdFriendship() : int {
-        $id = $this->repo->fetchIdFriendship($this->user1->user_id, $this->user2->user_id);
-        return $id['idFriendship'];
-    }
-
     public function finish() {
         $this->time = date("Y-m-d H:i:s");
         $this->repo->insertMessages($this->idFriendship, $this->user1->user_id, $this->payload, $this->time);
+    }
+}
+
+class GetIdFriendship {
+    public $user1;
+    public $user2;
+    public $repo;
+
+    public function __construct($repo, $user1, $user2) {
+        $this->repo = $repo;
+        $this->user1 = $user1;
+        $this->user2 = $user2;
+
+        $this->getIdFriendship();
+    }
+
+    public function getIdFriendship() {
+        $id = $this->repo->fetchIdFriendship($this->user1->user_id, $this->user2->user_id);
+        $_SESSION['friendshipId'] = $id['idFriendship'];
     }
 }

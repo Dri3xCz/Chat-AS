@@ -1,5 +1,5 @@
 <?php
-require_once __DIR__ . '/../usecase/UserUseCase.php';
+require_once __DIR__ . '/../usecase/user_usecase.php';
 require_once __DIR__ . '/../usecase/friend_usecase.php';
 require_once __DIR__ . '/../repository/friend_repository.php';
 require_once __DIR__ . '/../connection.php';
@@ -91,7 +91,7 @@ function friendRequestHtml($user) {
 }
 
 function friendListHtml($user) {
-    echo "<form>
+    echo "<form action='controller/set_friendshipId.php'>
     <label for='{$user['username']}' class='chat-buffer d-flex'>
       <img src='assets/img/defaultIcon.jpeg' class='profile-pic' alt=''>
       <h3 class='username'>{$user['username']}</h3>

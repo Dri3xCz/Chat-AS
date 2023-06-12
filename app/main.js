@@ -49,19 +49,3 @@ function findGetParameter(parameterName) {
         });
     return result;
 }
-
-function toggleFriendList() {
-    const friendList = document.getElementById("friend-list")
-    const toggleButton = document.getElementById("toggle-button")
-    const chat = document.getElementById("chat-main")
-    if (friendList.style.display == "none"){
-        friendList.style.display = "block"
-        toggleButton.style.display = "none"
-        chat.classList.remove("col-12")
-    }
-    else {
-        friendList.style.display = "none"
-        toggleButton.style.display = "block"
-        chat.classList.add("col-12")
-    }
-}
