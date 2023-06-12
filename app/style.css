@@ -41,8 +41,8 @@ p {
 .chat-buffer > h3 {
     white-space: nowrap;
     text-overflow: ellipsis;
-    overflow-x: hidden; 
-    overflow-y: hidden ;
+    overflow-x: hidden;
+    overflow-y: hidden;
 }
 
 .chat-buffer:hover {
@@ -62,7 +62,7 @@ p {
     overflow-wrap: break-word;
 }
 
-.message-box-submit {    
+.message-box-submit {
     width: 50px;
     height: 50px;
     border-radius: 50%;
@@ -76,6 +76,12 @@ p {
 .message-info > * {
     margin-left: 10px;
 }
+
+.icon {
+    padding: 0.5rem 0 0 15px !important;
+}
+
+
 
 .profile-info {
     background-color: #FFFFFF;
@@ -134,7 +140,7 @@ p {
     padding: 5px 10px;
     border: none;
     border-radius: 3px;
-    cursor: pointer; 
+    cursor: pointer;
 }
 
 .friend-request-buttons {
@@ -142,7 +148,7 @@ p {
     gap: 10px;
     margin: 0;
 }
-  
+
 .accept-input, .decline-input {
     border: none;
     border-radius: 5px;
@@ -153,25 +159,30 @@ p {
     padding: 10px 15px;
     transition: background-color 0.2s ease-in-out;
 }
-  
+
 .accept-input {
     background-color: #4CAF50; /* Green */
 }
-  
+
 .decline-input {
     background-color: #f44336; /* Red */
 }
-  
+
 .accept-button:hover, .decline-button:hover {
     background-color: #555; /* Dark grey */
 }
 
-.h-90 {
-    height: 90%;
+.h-70 {
+    height: 80%;
 }
 
 a {
     color: black !important;
     text-decoration: none !important;
+}
 
+@media screen and (min-width: 960px) {
+    .h-lg-85 {
+        height: 85%;
+    }
 }
