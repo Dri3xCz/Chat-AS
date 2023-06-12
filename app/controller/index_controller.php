@@ -91,7 +91,7 @@ function friendRequestHtml($user) {
 }
 
 function friendListHtml($user) {
-    echo "<form action='controller/set_friendshipId.php'>
+    echo "<form action='controller/set_friendshipId.php' method='post'>
     <label for='{$user['username']}' class='chat-buffer d-flex'>
       <img src='assets/img/defaultIcon.jpeg' class='profile-pic' alt=''>
       <h3 class='username'>{$user['username']}</h3>

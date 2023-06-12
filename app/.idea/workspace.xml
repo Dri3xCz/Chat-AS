@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="619c5a60-46be-497e-a12d-5d331ce758b6" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/app.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/webServers.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/webServers.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/controller/chat.php" beforeDir="false" afterPath="$PROJECT_DIR$/controller/chat.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/controller/index_controller.php" beforeDir="false" afterPath="$PROJECT_DIR$/controller/index_controller.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/controller/logout.php" beforeDir="false" afterPath="$PROJECT_DIR$/controller/logout.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/controller/set_friendshipId.php" beforeDir="false" afterPath="$PROJECT_DIR$/controller/set_friendshipId.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/usecase/chat_usecase.php" beforeDir="false" afterPath="$PROJECT_DIR$/usecase/chat_usecase.php" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ComposerSettings">
+    <execution />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+  </component>
+  <component name="ProjectId" id="2R60mltoOvX0HgRL3ymCEOJ7ZvV" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/config.php" />
+    <property name="vue.rearranger.settings.migration" value="true" />
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="619c5a60-46be-497e-a12d-5d331ce758b6" name="Changes" comment="" />
+      <created>1686555385548</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1686555385548</updated>
+      <workItem from="1686555386701" duration="54000" />
+      <workItem from="1686555441850" duration="3323000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+</project>
