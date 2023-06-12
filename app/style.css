@@ -42,7 +42,7 @@ p {
     white-space: nowrap;
     text-overflow: ellipsis;
     overflow-x: hidden; 
-    overflow-y: hidden ;
+    overflow-y: hidden;
 }
 
 .chat-buffer:hover {
@@ -76,13 +76,11 @@ p {
     margin-left: 10px;
 }
 
-icon {
-    background: black;
-    display: block;
-    position: absolute;
-    right: 0;
-    top: 0;
+.icon {
+    padding: 0.5rem 0 0 15px !important;
 }
+
+
 
 .profile-info {
     background-color: #FFFFFF;
@@ -173,12 +171,17 @@ icon {
     background-color: #555; /* Dark grey */
 }
 
-.h-85 {
-    height: 85%;
+.h-70 {
+    height: 80%;
 }
 
 a {
     color: black !important;
     text-decoration: none !important;
+}
 
+@media screen and (min-width: 960px) {
+    .h-lg-85 {
+        height: 85%;
+    }
 }

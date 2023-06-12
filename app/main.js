@@ -57,15 +57,11 @@ function toggleFriendList() {
     if (friendList.style.display == "none"){
         friendList.style.display = "block"
         toggleButton.style.display = "none"
-        chat.classList.add("col-8")
-        chat.classList.add("col-lg-10")
-        chat.classList.remove("w-100")
+        chat.classList.remove("col-12")
     }
     else {
         friendList.style.display = "none"
         toggleButton.style.display = "block"
-        chat.classList.remove("col-8")
-        chat.classList.remove("col-lg-10")
-        chat.classList.add("w-100")
+        chat.classList.add("col-12")
     }
 }

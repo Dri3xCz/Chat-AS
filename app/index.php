@@ -26,30 +26,32 @@ if(!isset($_SESSION["user"])){
     
     <main class="container-fluid">
         <div class="row h-100">
-            <a href="javascript:void(0);" style="display: none" id="toggle-button" class="icon d-lg-none " onclick="toggleFriendList()">
-                <i class="fa fa-bars"></i>
+            <a href="javascript:void(0);" style="display: none" id="toggle-button" class="icon d-lg-none" onclick="toggleFriendList()">
+                <i class="fa fa-bars" style="font-size: 2rem"></i>
             </a>
-            <div class="col-4 col-lg-2 chat-buffer-list" id="friend-list">
-                <a href="javascript:void(0);" class="icon d-lg-none" onclick="toggleFriendList()">
-                    <i class="fa fa-bars"></i>
-                </a>
-                <div class="w-100 h-85">
-                    <a href="./" class="chat-buffer d-flex">
-                        <img src="assets/img/defaultIcon.jpeg" class="profile-pic" alt="">
-                        <h3 class="username">Můj profil</h3>
+            <div class="col-8 col-lg-2 chat-buffer-list" id="friend-list">
+                <div class="mt-2">
+                    <a href="javascript:void(0);" class="icon d-lg-none" onclick="toggleFriendList()">
+                        <i class="fa fa-bars" style="font-size: 2rem"></i>
                     </a>
-                    <?php
+                    <div class="w-100 h-70 h-lg-85">
+                        <a href="./" class="chat-buffer d-flex">
+                            <img src="assets/img/defaultIcon.jpeg" class="profile-pic" alt="">
+                            <h3 class="username">Můj profil</h3>
+                        </a>
+                        <?php
                         friendListArea($conn);
-                    ?> 
+                        ?>
+                    </div>
+                    <a href="?status=adding_friends" class="chat-buffer d-flex">
+                        <h3 class="username">Přidat kamaráda</h3>
+                    </a>
+                    <a href="./controller/logout.php" class="chat-buffer d-flex">
+                        <h3 class="username">Odhlásit se</h3>
+                    </a>
                 </div>
-                <a href="?status=adding_friends" class="chat-buffer d-flex">
-                    <h3 class="username">Přidat kamaráda</h3>
-                </a>
-                <a href="./controller/logout.php" class="chat-buffer d-flex">
-                    <h3 class="username">Odhlásit se</h3>
-                </a>
             </div>
-            <div class="col-8 col-lg-10 chat-main" id="chat-main">
+            <div class="col-4 col-lg-10 chat-main" id="chat-main">
                 <?php
                     chatArea($conn);
                 ?>
