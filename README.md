@@ -1,3 +1,7 @@
+## Pracovali:
+- Lukáš Hak (Dri3x)
+- Adam Hachle (Wafle05)
+
 ## Docker příkazy
 ```sh
 docker-compose up -d --build
